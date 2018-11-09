@@ -1,0 +1,149 @@
+create database PolyclinicDB
+
+create table admin
+(
+	Admin_id int auto_increment
+		primary key,
+	Surname varchar(50) not null,
+	Name varchar(50) not null,
+	Patronymic varchar(50) null,
+	Phone_number int not null
+)
+;
+
+create table list_of_diagnoses
+(
+	List_diagnoses_id int auto_increment
+		primary key,
+	Diagnose_name varchar(50) not null,
+	Description varchar(255) not null
+)
+;
+
+create table list_of_specialty
+(
+	Specialty_id int auto_increment
+		primary key,
+	Spetialty_name varchar(50) not null,
+	Description varchar(255) not null
+)
+;
+
+create table doctor
+(
+	Doctor_id int auto_increment
+		primary key,
+	Surname varchar(50) not null,
+	Name varchar(50) not null,
+	Patronymic varchar(50) null,
+	Date_of_birth date not null,
+	Phone_number int not null,
+	id_specialty int not null,
+	Education varchar(255) not null,
+	constraint doctor_list_of_specialty_Specialty_id_fk
+		foreign key (id_specialty) references list_of_specialty (Specialty_id)
+)
+;
+
+create table docrors_timetable
+(
+	Timetable_id int auto_increment
+		primary key,
+	id_doctor int not null,
+	Appointment_time time not null,
+	constraint docrors_timetable_doctor_Doctor_id_fk
+		foreign key (id_doctor) references doctor (Doctor_id)
+)
+;
+
+create table patient
+(
+	Patient_id int auto_increment
+		primary key,
+	Surname varchar(50) not null,
+	Name varchar(50) not null,
+	Patronymic varchar(50) null,
+	Date_of_birth date not null,
+	Phone_number int not null,
+	Adress varchar(100) not null,
+	Insurance_policy int(16) not null
+)
+;
+
+create table appointment
+(
+	Appointment_id int auto_increment
+		primary key,
+	id_doctor int not null,
+	id_patient int not null,
+	Info_about_appointment varchar(255) not null,
+	id_diagnosis int not null,
+	Theraphy varchar(255) not null,
+	constraint appointment_doctor_Doctor_id_fk
+		foreign key (id_doctor) references doctor (Doctor_id),
+	constraint appointment_list_of_diagnoses_List_diagnoses_id_fk
+		foreign key (id_diagnosis) references list_of_diagnoses (List_diagnoses_id),
+	constraint appointment_patient_Patient_id_fk
+		foreign key (id_patient) references patient (Patient_id)
+)
+;
+
+create table doctors_personal_timetable
+(
+	Personal_timetable_id int auto_increment
+		primary key,
+	id_doctor int not null,
+	id_patient int not null,
+	Date date not null,
+	Time time not null,
+	constraint doctors_personal_timetable_doctor_Doctor_id_fk
+		foreign key (id_doctor) references doctor (Doctor_id),
+	constraint doctors_personal_timetable_patient_Patient_id_fk
+		foreign key (id_patient) references patient (Patient_id)
+)
+;
+
+create table making_appointment
+(
+	Record_id int auto_increment
+		primary key,
+	Date date not null,
+	Time time not null,
+	id_doctor int not null,
+	id_patient int not null,
+	Status varchar(20) not null,
+	constraint making_appointment_doctor_Doctor_id_fk
+		foreign key (id_doctor) references doctor (Doctor_id),
+	constraint making_appointment_patient_Patient_id_fk
+		foreign key (id_patient) references patient (Patient_id)
+)
+;
+
+create table patient_medical_history
+(
+	Medical_history_id int auto_increment
+		primary key,
+	id_patient int not null,
+	id_appointment int not null,
+	constraint patient_medical_history_appointment_Appointment_id_fk
+		foreign key (id_appointment) references appointment (Appointment_id),
+	constraint patient_medical_history_patient_Patient_id_fk
+		foreign key (id_patient) references patient (Patient_id)
+)
+;
+
+create table prescription
+(
+	Prescription_id int auto_increment
+		primary key,
+	id_doctor int not null,
+	id_patient int not null,
+	Date date not null,
+	Content varchar(255) not null,
+	constraint prescription_doctor_Doctor_id_fk
+		foreign key (id_doctor) references doctor (Doctor_id),
+	constraint prescription_patient_Patient_id_fk
+		foreign key (id_patient) references patient (Patient_id)
+)
+;
+
