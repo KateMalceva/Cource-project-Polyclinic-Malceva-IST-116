@@ -1,0 +1,84 @@
+﻿@model IEnumerable<CourseProject.docrors_timetable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_doctor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tuesday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wednesday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thursday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Friday)
+        </th>
+
+        <th></th>
+    </tr>
+    @{
+        int i = 0;
+        foreach (var item in Model)
+        {
+            var fio = (@ViewData["Fio"] as List<CourseProject.Models.FIO>).ElementAt(i);
+            string Fio = fio.surname + " " + fio.name + " " + fio.patronymic;
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_doctor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Fio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tuesday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wednesday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thursday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Friday)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Timetable_id }) |
+                    @*@Html.ActionLink("Details", "Details", new { id = item.Timetable_id }) |*@
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Timetable_id })*@
+                </td>
+
+            </tr>
+            i++;
+        }
+    }
+</table>

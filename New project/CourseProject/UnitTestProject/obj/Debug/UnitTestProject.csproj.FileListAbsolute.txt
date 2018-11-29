@@ -1,0 +1,2 @@
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\UnitTestProject\obj\Debug\UnitTestProject.csprojAssemblyReference.cache
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\UnitTestProject\obj\Debug\UnitTestProject.csproj.CoreCompileInputs.cache

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище PolyclinicModel3Container" CdmEntityContainer="PolyclinicEntities3">
+    <EntitySetMapping Name="admin">
+      <EntityTypeMapping TypeName="PolyclinicModel3.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="Admin_id" ColumnName="Admin_id" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="appointment">
+      <EntityTypeMapping TypeName="PolyclinicModel3.appointment">
+        <MappingFragment StoreEntitySet="appointment">
+          <ScalarProperty Name="Appointment_id" ColumnName="Appointment_id" />
+          <ScalarProperty Name="id_doctor" ColumnName="id_doctor" />
+          <ScalarProperty Name="id_patient" ColumnName="id_patient" />
+          <ScalarProperty Name="Info_about_appointment" ColumnName="Info_about_appointment" />
+          <ScalarProperty Name="id_diagnosis" ColumnName="id_diagnosis" />
+          <ScalarProperty Name="Theraphy" ColumnName="Theraphy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="docrors_timetable">
+      <EntityTypeMapping TypeName="PolyclinicModel3.docrors_timetable">
+        <MappingFragment StoreEntitySet="docrors_timetable">
+          <ScalarProperty Name="Timetable_id" ColumnName="Timetable_id" />
+          <ScalarProperty Name="id_doctor" ColumnName="id_doctor" />
+          <ScalarProperty Name="Monday" ColumnName="Monday" />
+          <ScalarProperty Name="Tuesday" ColumnName="Tuesday" />
+          <ScalarProperty Name="Wednesday" ColumnName="Wednesday" />
+          <ScalarProperty Name="Thursday" ColumnName="Thursday" />
+          <ScalarProperty Name="Friday" ColumnName="Friday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doctor">
+      <EntityTypeMapping TypeName="PolyclinicModel3.doctor">
+        <MappingFragment StoreEntitySet="doctor">
+          <ScalarProperty Name="Doctor_id" ColumnName="Doctor_id" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+          <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+          <ScalarProperty Name="id_specialty" ColumnName="id_specialty" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="list_of_diagnoses">
+      <EntityTypeMapping TypeName="PolyclinicModel3.list_of_diagnoses">
+        <MappingFragment StoreEntitySet="list_of_diagnoses">
+          <ScalarProperty Name="List_diagnoses_id" ColumnName="List_diagnoses_id" />
+          <ScalarProperty Name="Diagnose_name" ColumnName="Diagnose_name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="list_of_specialty">
+      <EntityTypeMapping TypeName="PolyclinicModel3.list_of_specialty">
+        <MappingFragment StoreEntitySet="list_of_specialty">
+          <ScalarProperty Name="Specialty_id" ColumnName="Specialty_id" />
+          <ScalarProperty Name="Spetialty_name" ColumnName="Spetialty_name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="making_appointment">
+      <EntityTypeMapping TypeName="PolyclinicModel3.making_appointment">
+        <MappingFragment StoreEntitySet="making_appointment">
+          <ScalarProperty Name="Record_id" ColumnName="Record_id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="id_doctor" ColumnName="id_doctor" />
+          <ScalarProperty Name="id_patient" ColumnName="id_patient" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="patient">
+      <EntityTypeMapping TypeName="PolyclinicModel3.patient">
+        <MappingFragment StoreEntitySet="patient">
+          <ScalarProperty Name="Patient_id" ColumnName="Patient_id" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Date_of_birth" ColumnName="Date_of_birth" />
+          <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Insurance_policy" ColumnName="Insurance_policy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prescription">
+      <EntityTypeMapping TypeName="PolyclinicModel3.prescription">
+        <MappingFragment StoreEntitySet="prescription">
+          <ScalarProperty Name="Prescription_id" ColumnName="Prescription_id" />
+          <ScalarProperty Name="id_doctor" ColumnName="id_doctor" />
+          <ScalarProperty Name="id_patient" ColumnName="id_patient" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

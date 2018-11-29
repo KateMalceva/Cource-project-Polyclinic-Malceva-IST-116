@@ -1,0 +1,214 @@
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ApplicationInsights.config
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\CourseProject.dll.config
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\CourseProject.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\CourseProject.pdb
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\csc.exe
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\csc.exe.config
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\csc.rsp
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\csi.exe
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\csi.exe.config
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\csi.rsp
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.AppContext.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Console.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.IO.Compression.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.IO.Pipes.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Security.Claims.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.ValueTuple.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Xml.XPath.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\vbc.exe
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\vbc.exe.config
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\vbc.rsp
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\VBCSCompiler.exe
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Antlr3.Runtime.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\EntityFramework.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\EntityFramework.SqlServer.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AI.Web.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.ApplicationInsights.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Newtonsoft.Json.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.Helpers.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.Mvc.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.Optimization.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.Razor.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.WebPages.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.WebPages.Razor.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\WebGrease.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\EntityFramework.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\EntityFramework.SqlServer.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.Helpers.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.Mvc.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.Optimization.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.Razor.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.WebPages.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Web.WebPages.Razor.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Newtonsoft.Json.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Antlr3.Runtime.pdb
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.AI.Web.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ru\EntityFramework.resources.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ru\System.Web.Helpers.resources.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ru\System.Web.Mvc.resources.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ru\System.Web.Optimization.resources.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ru\System.Web.Razor.resources.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ru\System.Web.WebPages.resources.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ru\System.Web.WebPages.Deployment.resources.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\obj\Debug\CourseProject.csprojAssemblyReference.cache
+C:\Users\dns\source\repos\CourseProject\CourseProject\obj\Debug\CourseProject.csproj.CoreCompileInputs.cache
+C:\Users\dns\source\repos\CourseProject\CourseProject\obj\Debug\CourseProject.csproj.CopyComplete
+C:\Users\dns\source\repos\CourseProject\CourseProject\obj\Debug\CourseProject.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\obj\Debug\CourseProject.pdb
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\nunit.framework.dll
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\nunit.framework.pdb
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\nunit.framework.xml
+C:\Users\dns\source\repos\CourseProject\CourseProject\bin\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ApplicationInsights.config
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\CourseProject.dll.config
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\CourseProject.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\CourseProject.pdb
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\csc.exe
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\csc.exe.config
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\csc.rsp
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\csi.exe
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\csi.exe.config
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\csi.rsp
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.AppContext.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Console.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.IO.Compression.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.IO.Pipes.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Security.Claims.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.ValueTuple.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Xml.XPath.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\vbc.exe
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\vbc.exe.config
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\vbc.rsp
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\VBCSCompiler.exe
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Antlr3.Runtime.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\EntityFramework.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\EntityFramework.SqlServer.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AI.Web.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.ApplicationInsights.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Newtonsoft.Json.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\nunit.framework.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.Helpers.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.Mvc.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.Optimization.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.Razor.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.WebPages.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.WebPages.Razor.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\WebGrease.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\EntityFramework.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\EntityFramework.SqlServer.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\nunit.framework.pdb
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\nunit.framework.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.Helpers.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.Mvc.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.Optimization.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.Razor.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.WebPages.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Web.WebPages.Razor.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Newtonsoft.Json.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Antlr3.Runtime.pdb
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.AI.Web.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ru\EntityFramework.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ru\System.Web.Helpers.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ru\System.Web.Mvc.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ru\System.Web.Optimization.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ru\System.Web.Razor.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ru\System.Web.WebPages.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ru\System.Web.WebPages.Deployment.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\obj\Debug\CourseProject.csprojAssemblyReference.cache
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\obj\Debug\CourseProject.csproj.CoreCompileInputs.cache
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\obj\Debug\CourseProject.csproj.CopyComplete
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\obj\Debug\CourseProject.dll
+C:\Users\dns\Desktop\Учеба\5 семестр\Технологии программирования\Курсач\CourseProject\CourseProject\obj\Debug\CourseProject.pdb
