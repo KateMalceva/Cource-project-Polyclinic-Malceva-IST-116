@@ -1,0 +1,58 @@
+﻿@model PolyclinicCourseProject.appointment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>appointment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Info_about_appointment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Info_about_appointment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Theraphy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Theraphy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doctor.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doctor.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.list_of_diagnoses.Diagnose_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.list_of_diagnoses.Diagnose_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.Surname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Appointment_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

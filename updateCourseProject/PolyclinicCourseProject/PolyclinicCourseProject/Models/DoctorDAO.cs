@@ -71,7 +71,6 @@ namespace PolyclinicCourseProject.Models
 
         public doctor DetailsDoctor(int Doctor_id)
         {
-            List<doctor> listDoctor = new List<doctor>();
             doctor doctor = new doctor();
             using (var ctx = new PolyclinicEntities())
             {

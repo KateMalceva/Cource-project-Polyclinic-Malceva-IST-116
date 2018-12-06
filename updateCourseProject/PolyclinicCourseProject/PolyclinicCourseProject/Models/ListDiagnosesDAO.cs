@@ -61,7 +61,6 @@ namespace PolyclinicCourseProject.Models
 
         public list_of_diagnoses DetailsDiagnosis(int List_diagnoses_id)
         {
-            List<list_of_diagnoses> listDiagnoses = new List<list_of_diagnoses>();
             list_of_diagnoses list = new list_of_diagnoses();
             using (var ctx = new PolyclinicEntities())
             {

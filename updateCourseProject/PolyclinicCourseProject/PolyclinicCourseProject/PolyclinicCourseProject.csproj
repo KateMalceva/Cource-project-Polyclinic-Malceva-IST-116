@@ -203,13 +203,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\DoctorsTimetableController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListDiagnosesController.cs" />
     <Compile Include="Controllers\ListSpecialtyController.cs" />
+    <Compile Include="Controllers\MakingAppointmentController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="doctor.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -244,13 +247,16 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AppointmentDAO.cs" />
     <Compile Include="Models\DoctorDAO.cs" />
     <Compile Include="Models\DoctorsTimetableDAO.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ListDiagnosesDAO.cs" />
     <Compile Include="Models\ListSpecialtyDAO.cs" />
+    <Compile Include="Models\MakingAppointmentDAO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PatientDAO.cs" />
+    <Compile Include="Models\PrescriptionDAO.cs" />
     <Compile Include="patient.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -357,6 +363,16 @@
     <Content Include="Views\ListDiagnoses\Details.cshtml" />
     <Content Include="Views\Patient\Create.cshtml" />
     <Content Include="Views\Patient\Index.cshtml" />
+    <Content Include="Views\MakingAppointment\GetItems.cshtml" />
+    <Content Include="Views\MakingAppointment\Index.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Appointment\Create.cshtml" />
+    <Content Include="Views\Appointment\Details.cshtml" />
+    <Content Include="Views\Patient\Edit.cshtml" />
+    <Content Include="Views\Patient\Details.cshtml" />
+    <Content Include="Views\Prescription\Index.cshtml" />
+    <Content Include="Views\Prescription\Create.cshtml" />
+    <Content Include="Views\Prescription\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

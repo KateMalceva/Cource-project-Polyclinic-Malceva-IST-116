@@ -61,7 +61,6 @@ namespace PolyclinicCourseProject.Models
 
         public list_of_specialty DetailsSpecialty(int Specialty_id)
         {
-            List<list_of_specialty> listSpecialty = new List<list_of_specialty>();
             list_of_specialty list = new list_of_specialty();
             using (var ctx = new PolyclinicEntities())
             {

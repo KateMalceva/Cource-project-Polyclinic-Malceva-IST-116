@@ -1,0 +1,74 @@
+﻿@model PolyclinicCourseProject.patient
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>patient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patronymic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_of_birth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Insurance_policy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insurance_policy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Patient_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

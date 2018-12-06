@@ -59,9 +59,11 @@
             @Html.DisplayFor(modelItem => item.Insurance_policy)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Patient_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Patient_id }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.Patient_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Patient_id }) |
             @*@Html.ActionLink("Delete", "Delete", new { id=item.Patient_id })*@
+            <input type="button" value="Start appointment" onclick="location.href='@Url.Action("Create", "Appointment")'" class="btn btn-default"/>
+            @*@Html.ActionLink("", "Create", "Appointment", new { id = item.Patient_id })*@
         </td>
     </tr>
 }

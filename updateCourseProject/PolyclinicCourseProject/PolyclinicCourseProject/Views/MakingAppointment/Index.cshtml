@@ -1,0 +1,84 @@
+﻿@model IEnumerable<PolyclinicCourseProject.making_appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Выберите специальность</h3>
+@Html.DropDownList("list_of_specialty", ViewBag.States as SelectList, new { id = "specialty" })
+<h3>Выберите врача</h3>
+@Html.DropDownList("doctor", ViewBag.Cities as SelectList, new { id = "doctor" })
+
+@section scripts{
+    <script type="text/javascript">
+    $(function () {
+
+        $('#specialty').change(function()
+        {
+            // получаем выбранный id
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetItems")/' + id,
+                success: function (data) {
+
+                    // заменяем содержимое присланным частичным представлением
+                    $('#doctor').replaceWith(data);
+                }
+            });
+        });
+    })
+    </script>
+}
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.doctor.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.patient.Surname)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.doctor.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.patient.Surname)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Record_id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Record_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Record_id })
+            </td>
+        </tr>
+    }
+
+    </table>*@
