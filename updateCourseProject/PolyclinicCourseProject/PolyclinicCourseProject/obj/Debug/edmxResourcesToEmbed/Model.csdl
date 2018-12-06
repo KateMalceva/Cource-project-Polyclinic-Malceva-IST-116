@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PolyclinicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="Admin_id" />
+    </Key>
+    <Property Name="Admin_id" Type="Int32" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone_number" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="appointment">
+    <Key>
+      <PropertyRef Name="Appointment_id" />
+    </Key>
+    <Property Name="Appointment_id" Type="Int32" Nullable="false" />
+    <Property Name="id_doctor" Type="Int32" Nullable="false" />
+    <Property Name="id_patient" Type="Int32" Nullable="false" />
+    <Property Name="Info_about_appointment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_diagnosis" Type="Int32" Nullable="false" />
+    <Property Name="Theraphy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="doctor" Relationship="Self.appointment_doctor_Doctor_id_fk" FromRole="appointment" ToRole="doctor" />
+    <NavigationProperty Name="list_of_diagnoses" Relationship="Self.appointment_list_of_diagnoses_List_diagnoses_id_fk" FromRole="appointment" ToRole="list_of_diagnoses" />
+    <NavigationProperty Name="patient" Relationship="Self.appointment_patient_Patient_id_fk" FromRole="appointment" ToRole="patient" />
+  </EntityType>
+  <EntityType Name="doctor">
+    <Key>
+      <PropertyRef Name="Doctor_id" />
+    </Key>
+    <Property Name="Doctor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Phone_number" Type="Int32" Nullable="false" />
+    <Property Name="id_specialty" Type="Int32" Nullable="false" />
+    <Property Name="Education" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="appointment" Relationship="Self.appointment_doctor_Doctor_id_fk" FromRole="doctor" ToRole="appointment" />
+    <NavigationProperty Name="list_of_specialty" Relationship="Self.doctor_list_of_specialty_Specialty_id_fk" FromRole="doctor" ToRole="list_of_specialty" />
+    <NavigationProperty Name="doctors_timetable" Relationship="Self.doctors_timetable_doctor_Doctor_id_fk" FromRole="doctor" ToRole="doctors_timetable" />
+    <NavigationProperty Name="making_appointment" Relationship="Self.making_appointment_doctor_Doctor_id_fk" FromRole="doctor" ToRole="making_appointment" />
+    <NavigationProperty Name="prescription" Relationship="Self.prescription_doctor_Doctor_id_fk" FromRole="doctor" ToRole="prescription" />
+  </EntityType>
+  <EntityType Name="doctors_timetable">
+    <Key>
+      <PropertyRef Name="Timetable_id" />
+    </Key>
+    <Property Name="Timetable_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_doctor" Type="Int32" Nullable="false" />
+    <Property Name="Monday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tuesday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Wednesday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Thursday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Friday" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="doctor" Relationship="Self.doctors_timetable_doctor_Doctor_id_fk" FromRole="doctors_timetable" ToRole="doctor" />
+  </EntityType>
+  <EntityType Name="list_of_diagnoses">
+    <Key>
+      <PropertyRef Name="List_diagnoses_id" />
+    </Key>
+    <Property Name="List_diagnoses_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Diagnose_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="appointment" Relationship="Self.appointment_list_of_diagnoses_List_diagnoses_id_fk" FromRole="list_of_diagnoses" ToRole="appointment" />
+  </EntityType>
+  <EntityType Name="list_of_specialty">
+    <Key>
+      <PropertyRef Name="Specialty_id" />
+    </Key>
+    <Property Name="Specialty_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Specialty_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="doctor" Relationship="Self.doctor_list_of_specialty_Specialty_id_fk" FromRole="list_of_specialty" ToRole="doctor" />
+  </EntityType>
+  <EntityType Name="making_appointment">
+    <Key>
+      <PropertyRef Name="Record_id" />
+    </Key>
+    <Property Name="Record_id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="id_doctor" Type="Int32" Nullable="false" />
+    <Property Name="id_patient" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="doctor" Relationship="Self.making_appointment_doctor_Doctor_id_fk" FromRole="making_appointment" ToRole="doctor" />
+    <NavigationProperty Name="patient" Relationship="Self.making_appointment_patient_Patient_id_fk" FromRole="making_appointment" ToRole="patient" />
+  </EntityType>
+  <EntityType Name="patient">
+    <Key>
+      <PropertyRef Name="Patient_id" />
+    </Key>
+    <Property Name="Patient_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Phone_number" Type="Int32" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Insurance_policy" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="appointment" Relationship="Self.appointment_patient_Patient_id_fk" FromRole="patient" ToRole="appointment" />
+    <NavigationProperty Name="making_appointment" Relationship="Self.making_appointment_patient_Patient_id_fk" FromRole="patient" ToRole="making_appointment" />
+    <NavigationProperty Name="prescription" Relationship="Self.prescription_patient_Patient_id_fk" FromRole="patient" ToRole="prescription" />
+  </EntityType>
+  <EntityType Name="prescription">
+    <Key>
+      <PropertyRef Name="Prescription_id" />
+    </Key>
+    <Property Name="Prescription_id" Type="Int32" Nullable="false" />
+    <Property Name="id_doctor" Type="Int32" Nullable="false" />
+    <Property Name="id_patient" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Content" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="doctor" Relationship="Self.prescription_doctor_Doctor_id_fk" FromRole="prescription" ToRole="doctor" />
+    <NavigationProperty Name="patient" Relationship="Self.prescription_patient_Patient_id_fk" FromRole="prescription" ToRole="patient" />
+  </EntityType>
+  <Association Name="appointment_doctor_Doctor_id_fk">
+    <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+    <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor">
+        <PropertyRef Name="Doctor_id" />
+      </Principal>
+      <Dependent Role="appointment">
+        <PropertyRef Name="id_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="appointment_list_of_diagnoses_List_diagnoses_id_fk">
+    <End Role="list_of_diagnoses" Type="Self.list_of_diagnoses" Multiplicity="1" />
+    <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="list_of_diagnoses">
+        <PropertyRef Name="List_diagnoses_id" />
+      </Principal>
+      <Dependent Role="appointment">
+        <PropertyRef Name="id_diagnosis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="appointment_patient_Patient_id_fk">
+    <End Role="patient" Type="Self.patient" Multiplicity="1" />
+    <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="Patient_id" />
+      </Principal>
+      <Dependent Role="appointment">
+        <PropertyRef Name="id_patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="doctor_list_of_specialty_Specialty_id_fk">
+    <End Role="list_of_specialty" Type="Self.list_of_specialty" Multiplicity="1" />
+    <End Role="doctor" Type="Self.doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="list_of_specialty">
+        <PropertyRef Name="Specialty_id" />
+      </Principal>
+      <Dependent Role="doctor">
+        <PropertyRef Name="id_specialty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="doctors_timetable_doctor_Doctor_id_fk">
+    <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+    <End Role="doctors_timetable" Type="Self.doctors_timetable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor">
+        <PropertyRef Name="Doctor_id" />
+      </Principal>
+      <Dependent Role="doctors_timetable">
+        <PropertyRef Name="id_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="making_appointment_doctor_Doctor_id_fk">
+    <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+    <End Role="making_appointment" Type="Self.making_appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor">
+        <PropertyRef Name="Doctor_id" />
+      </Principal>
+      <Dependent Role="making_appointment">
+        <PropertyRef Name="id_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prescription_doctor_Doctor_id_fk">
+    <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+    <End Role="prescription" Type="Self.prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor">
+        <PropertyRef Name="Doctor_id" />
+      </Principal>
+      <Dependent Role="prescription">
+        <PropertyRef Name="id_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="making_appointment_patient_Patient_id_fk">
+    <End Role="patient" Type="Self.patient" Multiplicity="1" />
+    <End Role="making_appointment" Type="Self.making_appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="Patient_id" />
+      </Principal>
+      <Dependent Role="making_appointment">
+        <PropertyRef Name="id_patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prescription_patient_Patient_id_fk">
+    <End Role="patient" Type="Self.patient" Multiplicity="1" />
+    <End Role="prescription" Type="Self.prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="Patient_id" />
+      </Principal>
+      <Dependent Role="prescription">
+        <PropertyRef Name="id_patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PolyclinicEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admin" EntityType="Self.admin" />
+    <EntitySet Name="appointment" EntityType="Self.appointment" />
+    <EntitySet Name="doctor" EntityType="Self.doctor" />
+    <EntitySet Name="doctors_timetable" EntityType="Self.doctors_timetable" />
+    <EntitySet Name="list_of_diagnoses" EntityType="Self.list_of_diagnoses" />
+    <EntitySet Name="list_of_specialty" EntityType="Self.list_of_specialty" />
+    <EntitySet Name="making_appointment" EntityType="Self.making_appointment" />
+    <EntitySet Name="patient" EntityType="Self.patient" />
+    <EntitySet Name="prescription" EntityType="Self.prescription" />
+    <AssociationSet Name="appointment_doctor_Doctor_id_fk" Association="Self.appointment_doctor_Doctor_id_fk">
+      <End Role="doctor" EntitySet="doctor" />
+      <End Role="appointment" EntitySet="appointment" />
+    </AssociationSet>
+    <AssociationSet Name="appointment_list_of_diagnoses_List_diagnoses_id_fk" Association="Self.appointment_list_of_diagnoses_List_diagnoses_id_fk">
+      <End Role="list_of_diagnoses" EntitySet="list_of_diagnoses" />
+      <End Role="appointment" EntitySet="appointment" />
+    </AssociationSet>
+    <AssociationSet Name="appointment_patient_Patient_id_fk" Association="Self.appointment_patient_Patient_id_fk">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="appointment" EntitySet="appointment" />
+    </AssociationSet>
+    <AssociationSet Name="doctor_list_of_specialty_Specialty_id_fk" Association="Self.doctor_list_of_specialty_Specialty_id_fk">
+      <End Role="list_of_specialty" EntitySet="list_of_specialty" />
+      <End Role="doctor" EntitySet="doctor" />
+    </AssociationSet>
+    <AssociationSet Name="doctors_timetable_doctor_Doctor_id_fk" Association="Self.doctors_timetable_doctor_Doctor_id_fk">
+      <End Role="doctor" EntitySet="doctor" />
+      <End Role="doctors_timetable" EntitySet="doctors_timetable" />
+    </AssociationSet>
+    <AssociationSet Name="making_appointment_doctor_Doctor_id_fk" Association="Self.making_appointment_doctor_Doctor_id_fk">
+      <End Role="doctor" EntitySet="doctor" />
+      <End Role="making_appointment" EntitySet="making_appointment" />
+    </AssociationSet>
+    <AssociationSet Name="prescription_doctor_Doctor_id_fk" Association="Self.prescription_doctor_Doctor_id_fk">
+      <End Role="doctor" EntitySet="doctor" />
+      <End Role="prescription" EntitySet="prescription" />
+    </AssociationSet>
+    <AssociationSet Name="making_appointment_patient_Patient_id_fk" Association="Self.making_appointment_patient_Patient_id_fk">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="making_appointment" EntitySet="making_appointment" />
+    </AssociationSet>
+    <AssociationSet Name="prescription_patient_Patient_id_fk" Association="Self.prescription_patient_Patient_id_fk">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="prescription" EntitySet="prescription" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

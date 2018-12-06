@@ -1,0 +1,93 @@
+﻿@model IEnumerable<PolyclinicCourseProject.doctors_timetable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+<table class="table">
+    <tr>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.id_doctor)
+            </th>
+        }
+        <th>
+            @Html.DisplayNameFor(model => model.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tuesday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wednesday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thursday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Friday)
+        </th>
+        <th></th>
+    </tr>
+
+    @{int i = 0;
+        foreach (var item in Model)
+        {
+            var fio = (@ViewData["Fio"] as List<PolyclinicCourseProject.Models.FIO>).ElementAt(i);
+            string Fio = fio.surname + " " + fio.name + " " + fio.patronymic;
+
+            <tr>
+                @if (User.IsInRole("Admin"))
+                 {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id_doctor)
+                    </td>
+                 }
+                <td>
+                    @Html.DisplayFor(modelItem => Fio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tuesday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wednesday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thursday)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Friday)
+                </td>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Timetable_id }) |
+
+                    </td>
+                }
+            </tr>
+            i++;
+        }
+    }
+</table>

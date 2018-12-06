@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PolyclinicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="Admin_id" />
+    </Key>
+    <Property Name="Admin_id" Type="int" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="varchar" MaxLength="50" />
+    <Property Name="Phone_number" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="appointment">
+    <Key>
+      <PropertyRef Name="Appointment_id" />
+    </Key>
+    <Property Name="Appointment_id" Type="int" Nullable="false" />
+    <Property Name="id_doctor" Type="int" Nullable="false" />
+    <Property Name="id_patient" Type="int" Nullable="false" />
+    <Property Name="Info_about_appointment" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="id_diagnosis" Type="int" Nullable="false" />
+    <Property Name="Theraphy" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="doctor">
+    <Key>
+      <PropertyRef Name="Doctor_id" />
+    </Key>
+    <Property Name="Doctor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="varchar" MaxLength="50" />
+    <Property Name="Date_of_birth" Type="date" Nullable="false" />
+    <Property Name="Phone_number" Type="int" Nullable="false" />
+    <Property Name="id_specialty" Type="int" Nullable="false" />
+    <Property Name="Education" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="doctors_timetable">
+    <Key>
+      <PropertyRef Name="Timetable_id" />
+    </Key>
+    <Property Name="Timetable_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_doctor" Type="int" Nullable="false" />
+    <Property Name="Monday" Type="varchar" MaxLength="50" />
+    <Property Name="Tuesday" Type="varchar" MaxLength="50" />
+    <Property Name="Wednesday" Type="varchar" MaxLength="50" />
+    <Property Name="Thursday" Type="varchar" MaxLength="50" />
+    <Property Name="Friday" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="list_of_diagnoses">
+    <Key>
+      <PropertyRef Name="List_diagnoses_id" />
+    </Key>
+    <Property Name="List_diagnoses_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Diagnose_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="list_of_specialty">
+    <Key>
+      <PropertyRef Name="Specialty_id" />
+    </Key>
+    <Property Name="Specialty_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Specialty_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="making_appointment">
+    <Key>
+      <PropertyRef Name="Record_id" />
+    </Key>
+    <Property Name="Record_id" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="id_doctor" Type="int" Nullable="false" />
+    <Property Name="id_patient" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="patient">
+    <Key>
+      <PropertyRef Name="Patient_id" />
+    </Key>
+    <Property Name="Patient_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="varchar" MaxLength="50" />
+    <Property Name="Date_of_birth" Type="date" Nullable="false" />
+    <Property Name="Phone_number" Type="int" Nullable="false" />
+    <Property Name="Adress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Insurance_policy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="prescription">
+    <Key>
+      <PropertyRef Name="Prescription_id" />
+    </Key>
+    <Property Name="Prescription_id" Type="int" Nullable="false" />
+    <Property Name="id_doctor" Type="int" Nullable="false" />
+    <Property Name="id_patient" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Content" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="appointment_doctor_Doctor_id_fk">
+    <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+    <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor">
+        <PropertyRef Name="Doctor_id" />
+      </Principal>
+      <Dependent Role="appointment">
+        <PropertyRef Name="id_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="appointment_list_of_diagnoses_List_diagnoses_id_fk">
+    <End Role="list_of_diagnoses" Type="Self.list_of_diagnoses" Multiplicity="1" />
+    <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="list_of_diagnoses">
+        <PropertyRef Name="List_diagnoses_id" />
+      </Principal>
+      <Dependent Role="appointment">
+        <PropertyRef Name="id_diagnosis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="appointment_patient_Patient_id_fk">
+    <End Role="patient" Type="Self.patient" Multiplicity="1" />
+    <End Role="appointment" Type="Self.appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="Patient_id" />
+      </Principal>
+      <Dependent Role="appointment">
+        <PropertyRef Name="id_patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="doctor_list_of_specialty_Specialty_id_fk">
+    <End Role="list_of_specialty" Type="Self.list_of_specialty" Multiplicity="1" />
+    <End Role="doctor" Type="Self.doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="list_of_specialty">
+        <PropertyRef Name="Specialty_id" />
+      </Principal>
+      <Dependent Role="doctor">
+        <PropertyRef Name="id_specialty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="doctors_timetable_doctor_Doctor_id_fk">
+    <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+    <End Role="doctors_timetable" Type="Self.doctors_timetable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor">
+        <PropertyRef Name="Doctor_id" />
+      </Principal>
+      <Dependent Role="doctors_timetable">
+        <PropertyRef Name="id_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="making_appointment_doctor_Doctor_id_fk">
+    <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+    <End Role="making_appointment" Type="Self.making_appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor">
+        <PropertyRef Name="Doctor_id" />
+      </Principal>
+      <Dependent Role="making_appointment">
+        <PropertyRef Name="id_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="making_appointment_patient_Patient_id_fk">
+    <End Role="patient" Type="Self.patient" Multiplicity="1" />
+    <End Role="making_appointment" Type="Self.making_appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="Patient_id" />
+      </Principal>
+      <Dependent Role="making_appointment">
+        <PropertyRef Name="id_patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prescription_doctor_Doctor_id_fk">
+    <End Role="doctor" Type="Self.doctor" Multiplicity="1" />
+    <End Role="prescription" Type="Self.prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doctor">
+        <PropertyRef Name="Doctor_id" />
+      </Principal>
+      <Dependent Role="prescription">
+        <PropertyRef Name="id_doctor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prescription_patient_Patient_id_fk">
+    <End Role="patient" Type="Self.patient" Multiplicity="1" />
+    <End Role="prescription" Type="Self.prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="patient">
+        <PropertyRef Name="Patient_id" />
+      </Principal>
+      <Dependent Role="prescription">
+        <PropertyRef Name="id_patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище PolyclinicModelContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="appointment" EntityType="Self.appointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="doctor" EntityType="Self.doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="doctors_timetable" EntityType="Self.doctors_timetable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="list_of_diagnoses" EntityType="Self.list_of_diagnoses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="list_of_specialty" EntityType="Self.list_of_specialty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="making_appointment" EntityType="Self.making_appointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="prescription" EntityType="Self.prescription" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="appointment_doctor_Doctor_id_fk" Association="Self.appointment_doctor_Doctor_id_fk">
+      <End Role="doctor" EntitySet="doctor" />
+      <End Role="appointment" EntitySet="appointment" />
+    </AssociationSet>
+    <AssociationSet Name="appointment_list_of_diagnoses_List_diagnoses_id_fk" Association="Self.appointment_list_of_diagnoses_List_diagnoses_id_fk">
+      <End Role="list_of_diagnoses" EntitySet="list_of_diagnoses" />
+      <End Role="appointment" EntitySet="appointment" />
+    </AssociationSet>
+    <AssociationSet Name="appointment_patient_Patient_id_fk" Association="Self.appointment_patient_Patient_id_fk">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="appointment" EntitySet="appointment" />
+    </AssociationSet>
+    <AssociationSet Name="doctor_list_of_specialty_Specialty_id_fk" Association="Self.doctor_list_of_specialty_Specialty_id_fk">
+      <End Role="list_of_specialty" EntitySet="list_of_specialty" />
+      <End Role="doctor" EntitySet="doctor" />
+    </AssociationSet>
+    <AssociationSet Name="doctors_timetable_doctor_Doctor_id_fk" Association="Self.doctors_timetable_doctor_Doctor_id_fk">
+      <End Role="doctor" EntitySet="doctor" />
+      <End Role="doctors_timetable" EntitySet="doctors_timetable" />
+    </AssociationSet>
+    <AssociationSet Name="making_appointment_doctor_Doctor_id_fk" Association="Self.making_appointment_doctor_Doctor_id_fk">
+      <End Role="doctor" EntitySet="doctor" />
+      <End Role="making_appointment" EntitySet="making_appointment" />
+    </AssociationSet>
+    <AssociationSet Name="making_appointment_patient_Patient_id_fk" Association="Self.making_appointment_patient_Patient_id_fk">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="making_appointment" EntitySet="making_appointment" />
+    </AssociationSet>
+    <AssociationSet Name="prescription_doctor_Doctor_id_fk" Association="Self.prescription_doctor_Doctor_id_fk">
+      <End Role="doctor" EntitySet="doctor" />
+      <End Role="prescription" EntitySet="prescription" />
+    </AssociationSet>
+    <AssociationSet Name="prescription_patient_Patient_id_fk" Association="Self.prescription_patient_Patient_id_fk">
+      <End Role="patient" EntitySet="patient" />
+      <End Role="prescription" EntitySet="prescription" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
