@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity;
 
 namespace PolyclinicCourseProject.Models
 {
     public class AppointmentDAO
     {
-        public List<appointment> GetAppointment()
+        public List<appointment> GetAppointment(int id_patient)
         {
             List<appointment> appointments = new List<appointment>();
             try
             {
                 using (var ctx = new PolyclinicEntities())
                 {
-                    string query = "SELECT * FROM appointment";
-                    appointments.AddRange(ctx.Database.SqlQuery<appointment>(query).ToList());
+                    string query = "SELECT * FROM appointment where id_patient = @P0";
+                    appointments.AddRange(ctx.Database.SqlQuery<appointment>(query,id_patient).ToList());
                 }
             }
             catch (Exception ex)
@@ -24,7 +25,7 @@ namespace PolyclinicCourseProject.Models
         }
 
         public void CreateAppointment(appointment model)
-        {
+        { 
             try
             {
                 using (var ctx = new PolyclinicEntities())

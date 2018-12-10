@@ -7,6 +7,11 @@ namespace PolyclinicCourseProject.Models
 {
     public class DoctorDAO
     {
+    //    public int Doctor_id { get; set; }
+    //    public string Surname { get; set; }
+    //    public int id_specialty { get; set; }
+    //    public list_of_specialty Specialty { get; set; }
+
         public List<doctor> GetDoctor()
         {
             List<doctor> doctors = new List<doctor>();
@@ -31,7 +36,6 @@ namespace PolyclinicCourseProject.Models
                 {
                     string query = "INSERT INTO doctor (Surname, Name, Patronymic, Date_of_birth, Phone_number, id_specialty, Education) VALUES(@P0, @P1, @P2, @P3, @P4, @P5, @P6)";
                     List<object> parameterList = new List<object>{
-
                         model.Surname,
                         model.Name,
                         model.Patronymic,

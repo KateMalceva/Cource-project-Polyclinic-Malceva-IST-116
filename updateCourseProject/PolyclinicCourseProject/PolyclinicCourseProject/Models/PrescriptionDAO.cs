@@ -7,15 +7,15 @@ namespace PolyclinicCourseProject.Models
 {
     public class PrescriptionDAO
     {
-        public List<prescription> GetPrescription()
+        public List<prescription> GetPrescription(int id_patient)
         {
             List<prescription> prescriptions = new List<prescription>();
             try
             {
                 using (var ctx = new PolyclinicEntities())
                 {
-                    string query = "SELECT * FROM prescription";
-                    prescriptions.AddRange(ctx.Database.SqlQuery<prescription>(query).ToList());
+                    string query = "SELECT * FROM prescription where id_patient = @P0";
+                    prescriptions.AddRange(ctx.Database.SqlQuery<prescription>(query, id_patient).ToList());
                 }
             }
             catch (Exception ex)

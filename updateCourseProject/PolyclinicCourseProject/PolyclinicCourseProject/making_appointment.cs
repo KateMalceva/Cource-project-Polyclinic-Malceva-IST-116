@@ -11,10 +11,12 @@ namespace PolyclinicCourseProject
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class making_appointment
     {
         public int Record_id { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime Date { get; set; }
         public System.TimeSpan Time { get; set; }
         public int id_doctor { get; set; }

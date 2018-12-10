@@ -11,12 +11,14 @@ namespace PolyclinicCourseProject
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class prescription
     {
         public int Prescription_id { get; set; }
         public int id_doctor { get; set; }
         public int id_patient { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime Date { get; set; }
         public string Content { get; set; }
     

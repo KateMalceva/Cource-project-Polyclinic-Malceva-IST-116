@@ -7,7 +7,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (User.IsInRole("Admin"))
+     {
+        @Html.ActionLink("Create New", "Register", "Account")
+     }
 </p>
 <table class="table">
     <tr>
@@ -35,37 +38,47 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Patronymic)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date_of_birth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone_number)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Adress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Insurance_policy)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Patient_id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Patient_id }) |
-            @*@Html.ActionLink("Delete", "Delete", new { id=item.Patient_id })*@
-            <input type="button" value="Start appointment" onclick="location.href='@Url.Action("Create", "Appointment")'" class="btn btn-default"/>
-            @*@Html.ActionLink("", "Create", "Appointment", new { id = item.Patient_id })*@
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patronymic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_of_birth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Insurance_policy)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Patient_id })
+                } |
+                @Html.ActionLink("Details", "Details", new { id = item.Patient_id }) |
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.Patient_id })*@
+                @if (User.IsInRole("Doctor"))
+                {
+                    @Html.ActionLink("Start appointment", "Create", "Appointment", new { id = item.Patient_id }, new { @class = "btn btn-default" })
+                }
+                @Html.ActionLink("Medical history", "Index", "Appointment", new { id = item.Patient_id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Prescriptions", "Index", "Prescription", new { id = item.Patient_id }, new { @class = "btn btn-default" })
+                @*<input type="button" value="Start appointment" onclick="location.href='@Url.Action("Create", "Appointment")'" class="btn btn-default" />*@
+                @*@Html.ActionLink("", "Create", "Appointment", new { id = item.Patient_id })*@
+            </td>
+        </tr>
+    }
 
 </table>

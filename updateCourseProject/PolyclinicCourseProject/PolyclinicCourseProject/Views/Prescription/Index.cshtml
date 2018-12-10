@@ -5,47 +5,54 @@
 }
 
 <h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create"@*, new { id = Model.id_patient }*@)
 </p>
+
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_doctor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_patient)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Content)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.doctor.Surname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.patient.Surname)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.doctor.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.patient.Surname)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Prescription_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Prescription_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Prescription_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_doctor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_patient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Prescription_id }) |*@
+                @Html.ActionLink("Details", "Details", new { id = item.Prescription_id }) @*|*@
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.Prescription_id })*@
+            </td>
+        </tr>
+    }
 
 </table>
+
+@*<input type="button" value="Create prescription" onclick="location.href='@Url.Action("Create", "Prescription", new { id = Model.id_patient })'" class="btn btn-default" />*@
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Patient")
+</div>

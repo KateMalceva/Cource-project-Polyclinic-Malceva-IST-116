@@ -5,9 +5,9 @@
 }
 
 <h3>Выберите специальность</h3>
-@Html.DropDownList("list_of_specialty", ViewBag.States as SelectList, new { id = "specialty" })
+@Html.DropDownList("list_of_specialty", ViewBag.Specialties as SelectList, new { id = "specialty" })
 <h3>Выберите врача</h3>
-@Html.DropDownList("doctor", ViewBag.Cities as SelectList, new { id = "doctor" })
+@Html.DropDownList("doctor", ViewBag.Doctors as SelectList, new { id = "doctor" })
 
 @section scripts{
     <script type="text/javascript">

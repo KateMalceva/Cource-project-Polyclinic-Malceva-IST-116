@@ -11,6 +11,7 @@ namespace PolyclinicCourseProject
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class patient
     {
@@ -26,6 +27,7 @@ namespace PolyclinicCourseProject
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime Date_of_birth { get; set; }
         public int Phone_number { get; set; }
         public string Adress { get; set; }

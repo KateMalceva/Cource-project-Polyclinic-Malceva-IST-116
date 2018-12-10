@@ -11,6 +11,47 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.id_doctor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_doctor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_patient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_patient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Info_about_appointment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Info_about_appointment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.list_of_diagnoses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_diagnosis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Theraphy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Theraphy)
+        </dd>
+
+
+        @*<dt>
             @Html.DisplayNameFor(model => model.Info_about_appointment)
         </dt>
 
@@ -48,11 +89,11 @@
 
         <dd>
             @Html.DisplayFor(model => model.patient.Surname)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Appointment_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Appointment_id }) |*@
+    @Html.ActionLink("Back to List", "Index", new { id = Model.id_patient })
 </p>

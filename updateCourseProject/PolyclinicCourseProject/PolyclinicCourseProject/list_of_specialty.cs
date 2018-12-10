@@ -11,7 +11,8 @@ namespace PolyclinicCourseProject
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class list_of_specialty
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,7 +24,10 @@ namespace PolyclinicCourseProject
         public int Specialty_id { get; set; }
         public string Specialty_name { get; set; }
         public string Description { get; set; }
-    
+
+        [NotMapped]
+        public ICollection<doctor> Doctors { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<doctor> doctor { get; set; }
     }

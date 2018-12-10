@@ -6,12 +6,28 @@
 
 <h2>Index</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.id_doctor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_patient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Info_about_appointment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_diagnosis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Theraphy)
+        </th>
+        <th></th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Info_about_appointment)
         </th>
         <th>
@@ -26,12 +42,27 @@
         <th>
             @Html.DisplayNameFor(model => model.patient.Surname)
         </th>
-        <th></th>
+        <th></th>*@
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.id_doctor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_patient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Info_about_appointment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_diagnosis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Theraphy)
+        </td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Info_about_appointment)
         </td>
         <td>
@@ -45,13 +76,17 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.patient.Surname)
-        </td>
+        </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Appointment_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Appointment_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Appointment_id })
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.Appointment_id }) |*@
+            @Html.ActionLink("Details", "Details", new { id = item.Appointment_id }) @*|*@
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.Appointment_id })*@
         </td>
     </tr>
 }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Patient")
+</div>
