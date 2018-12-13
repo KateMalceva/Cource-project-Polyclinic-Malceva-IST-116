@@ -28,8 +28,6 @@
                         <li>@Html.ActionLink("Patients", "Index", "Patient")</li>
                         <li>@Html.ActionLink("Specialties", "Index", "ListSpecialty")</li>
                         <li>@Html.ActionLink("Diagnoses", "Index", "ListDiagnoses")</li>
-                        <li>@Html.ActionLink("Add patient", "Create", "Patient")</li>
-                        <li>@Html.ActionLink("Add doctor", "Create", "Doctor")</li>
                      }
 
                     @if (User.IsInRole("Doctor"))
@@ -40,8 +38,8 @@
 
                     @if (User.IsInRole("Patient"))
                      {
-                        <li>@Html.ActionLink("Patient", "Index", "Patient")</li>
-                        <li>@Html.ActionLink("Prescriptions", "Index", "Prescription")</li>
+                        <li>@Html.ActionLink("About me", "DetailsUser", "Patient")</li>
+                        <li>@Html.ActionLink("Prescriptions", "GetUserPrescription", "Prescription")</li>
                      }
 
                     <li>@Html.ActionLink("Doctors timetable", "Index", "DoctorsTimetable")</li>
@@ -54,7 +52,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+            @*<p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>*@
         </footer>
     </div>
 

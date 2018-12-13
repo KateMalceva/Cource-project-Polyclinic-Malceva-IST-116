@@ -4,14 +4,22 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Info about specialty</h2>
 
 <div>
-    <h4>list_of_specialty</h4>
+    <h4></h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Specialty_name)
+            ID specialty
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialty_id)
+        </dd>
+
+        <dt>
+            Specialty name
         </dt>
 
         <dd>

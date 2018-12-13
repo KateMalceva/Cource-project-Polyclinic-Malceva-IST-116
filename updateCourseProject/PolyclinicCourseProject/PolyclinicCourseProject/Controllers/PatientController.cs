@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using PolyclinicCourseProject.Models;
 
 namespace PolyclinicCourseProject.Controllers
@@ -31,11 +32,11 @@ namespace PolyclinicCourseProject.Controllers
             try
             {
                 patientDAO.CreatePatient(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             { }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         //Edit
@@ -53,11 +54,11 @@ namespace PolyclinicCourseProject.Controllers
             {
                 int id = Convert.ToInt32(ControllerContext.RouteData.Values.Values.ElementAt(2));
                 patientDAO.EditPatient(model, id);
-                return RedirectToAction("Index");
+                return RedirectToAction("DetailsUser","Patient");
             }
             catch (Exception ex)
             { }
-            return RedirectToAction("Index");
+            return RedirectToAction("DetailsUser", "Patient");
         }
 
         //Details
@@ -66,6 +67,22 @@ namespace PolyclinicCourseProject.Controllers
         {
             var patient = patientDAO.DetailsPatient(id);
             return View(patient);
+        }
+
+        //Details for user
+        [HttpGet]
+        public ActionResult DetailsUser()
+        {
+            string userId = User.Identity.GetUserId();
+            patient patient1 = new patient();
+            Entities ent = new Entities();
+            var userPhoneNumber = ent.AspNetUsers.Find(userId).PhoneNumber;
+            using (PolyclinicEntities db = new PolyclinicEntities())
+            {
+                var patientId = db.patient.FirstOrDefault(x => x.Phone_number.ToString() == userPhoneNumber).Patient_id;
+                var patient = patientDAO.DetailsPatient(patientId);
+                return View(patient);
+            }
         }
     }
 }

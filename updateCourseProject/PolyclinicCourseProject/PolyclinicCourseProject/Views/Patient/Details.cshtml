@@ -4,12 +4,21 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>About patient</h2>
 
 <div>
-    <h4>patient</h4>
+    <h4></h4>
     <hr />
     <dl class="dl-horizontal">
+        @if (User.IsInRole("Admin"))
+        {
+            <dt>
+                ID patient
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Patient_id)
+            </dd>
+        }
         <dt>
             @Html.DisplayNameFor(model => model.Surname)
         </dt>
@@ -35,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Date_of_birth)
+            Date of birth
         </dt>
 
         <dd>
@@ -43,7 +52,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Phone_number)
+            Phone number
         </dt>
 
         <dd>
@@ -59,7 +68,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Insurance_policy)
+            Insurancen policy
         </dt>
 
         <dd>
@@ -69,6 +78,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Patient_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (User.IsInRole("Patient"))
+    {
+        @Html.ActionLink("Edit |", "Edit", new { id = Model.Patient_id })
+    }
+    @Html.ActionLink(" Back to List", "Index")
 </p>

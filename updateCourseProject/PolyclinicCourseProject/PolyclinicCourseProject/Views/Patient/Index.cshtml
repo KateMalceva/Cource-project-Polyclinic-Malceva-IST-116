@@ -4,16 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>All patients</h2>
 
 <p>
-    @if (User.IsInRole("Admin"))
-     {
+    @*@if (User.IsInRole("Admin"))
+    {
         @Html.ActionLink("Create New", "Register", "Account")
-     }
+    }*@
 </p>
 <table class="table">
     <tr>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>
+                ID patient
+            </th>
+        }
         <th>
             @Html.DisplayNameFor(model => model.Surname)
         </th>
@@ -24,16 +30,16 @@
             @Html.DisplayNameFor(model => model.Patronymic)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date_of_birth)
+            Date of birth
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Phone_number)
+            Phone number
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Adress)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Insurance_policy)
+            Insurance policy
         </th>
         <th></th>
     </tr>
@@ -41,6 +47,12 @@
     @foreach (var item in Model)
     {
         <tr>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient_id)
+                </td>
+            }
             <td>
                 @Html.DisplayFor(modelItem => item.Surname)
             </td>
@@ -63,20 +75,20 @@
                 @Html.DisplayFor(modelItem => item.Insurance_policy)
             </td>
             <td>
-                @if (User.IsInRole("Admin"))
+                @if (User.IsInRole("Patient"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Patient_id })
-                } |
-                @Html.ActionLink("Details", "Details", new { id = item.Patient_id }) |
-                @*@Html.ActionLink("Delete", "Delete", new { id=item.Patient_id })*@
+                    @Html.ActionLink("Edit |", "Edit", new { id = item.Patient_id })
+                }
+                @Html.ActionLink("Details |", "Details", new { id = item.Patient_id })
                 @if (User.IsInRole("Doctor"))
                 {
-                    @Html.ActionLink("Start appointment", "Create", "Appointment", new { id = item.Patient_id }, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Start appointment |", "Create", "Appointment", new { id = item.Patient_id }, new { })
+
+                    @Html.ActionLink(" Medical history |", "Index", "Appointment", new { id = item.Patient_id }, new { })
+
+                    @Html.ActionLink(" Prescriptions", "Index", "Prescription", new { id = item.Patient_id }, new { })
                 }
-                @Html.ActionLink("Medical history", "Index", "Appointment", new { id = item.Patient_id }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Prescriptions", "Index", "Prescription", new { id = item.Patient_id }, new { @class = "btn btn-default" })
-                @*<input type="button" value="Start appointment" onclick="location.href='@Url.Action("Create", "Appointment")'" class="btn btn-default" />*@
-                @*@Html.ActionLink("", "Create", "Appointment", new { id = item.Patient_id })*@
+
             </td>
         </tr>
     }

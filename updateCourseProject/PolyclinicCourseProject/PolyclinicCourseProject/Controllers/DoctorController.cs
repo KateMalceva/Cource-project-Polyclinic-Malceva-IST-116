@@ -37,11 +37,11 @@ namespace PolyclinicCourseProject.Controllers
             try
             {
                 doctorDAO.CreateDoctor(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             { }
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         //Edit

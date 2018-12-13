@@ -4,13 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>All doctors</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Register doctor", "Register", "Account")
 </p>
 <table class="table">
     <tr>
+        <th>
+            ID doctor
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Surname)
         </th>
@@ -21,13 +24,13 @@
             @Html.DisplayNameFor(model => model.Patronymic)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date_of_birth)
+            Date of birth
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Phone_number)
+            Phone number
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_specialty)
+            ID specialty
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Education)
@@ -38,6 +41,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doctor_id)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Surname)
         </td>
@@ -61,9 +67,9 @@
         </td>
 
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Doctor_id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Doctor_id }) |
-          
+            @Html.ActionLink("Edit |", "Edit", new { id = item.Doctor_id }) 
+            @Html.ActionLink(" Details", "Details", new { id = item.Doctor_id }) 
+
         </td>
     </tr>
 }

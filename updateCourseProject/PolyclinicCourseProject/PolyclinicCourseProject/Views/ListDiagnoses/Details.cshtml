@@ -4,14 +4,24 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>About diagnose</h2>
 
 <div>
-    <h4>list_of_diagnoses</h4>
+    <h4></h4>
     <hr />
     <dl class="dl-horizontal">
+        @if (User.IsInRole("Admin"))
+        {
+            <dt>
+                ID diagnose
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.List_diagnoses_id)
+            </dd>
+        }
         <dt>
-            @Html.DisplayNameFor(model => model.Diagnose_name)
+            Diagnose name
         </dt>
 
         <dd>
@@ -29,6 +39,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.List_diagnoses_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit |", "Edit", new { id = Model.List_diagnoses_id })
+    }
+    @Html.ActionLink(" Back to List", "Index")
 </p>

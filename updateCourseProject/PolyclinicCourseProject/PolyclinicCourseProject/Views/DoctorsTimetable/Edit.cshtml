@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit entry in timetable</h2>
 
 
 @using (Html.BeginForm())
@@ -12,13 +12,13 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>doctors_timetable</h4>
+        <h4></h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Timetable_id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_doctor, "id_doctor", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.id_doctor, "Doctor", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.id_doctor, new SelectList(Model.ListDoctor, "Doctor_id", "Name", "Surname", "Patronymic", "id_specialty"))
                 @Html.ValidationMessageFor(model => model.id_doctor, "", new { @class = "text-danger" })

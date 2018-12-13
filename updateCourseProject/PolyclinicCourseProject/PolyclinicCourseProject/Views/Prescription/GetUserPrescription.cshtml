@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PolyclinicCourseProject.prescription>
+
+@{
+    ViewBag.Title = "GetUserPrescription";
+}
+
+<h2>My prescriptions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Doctor
+        </th>
+        <th>
+            Patient
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+    @{ int i = 0;
+        int j = 0;
+        foreach (var item in Model)
+        {
+            var fio = (@ViewData["FIO"] as List<PolyclinicCourseProject.Models.FIO2>).ElementAt(i);
+            string Fio = fio.surname + " " + fio.name + " " + fio.patronymic;
+            var pfio = (@ViewData["pFIO"] as List<PolyclinicCourseProject.Models.pFIO>).ElementAt(j);
+            string pFio = pfio.surname + " " + pfio.name + " " + pfio.patronymic;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Fio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => pFio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id1 = item.id_patient, id = item.Prescription_id, idDoctor = item.id_doctor })
+                </td>
+            </tr>
+            i++;
+            j++;
+        }
+    }
+
+</table>

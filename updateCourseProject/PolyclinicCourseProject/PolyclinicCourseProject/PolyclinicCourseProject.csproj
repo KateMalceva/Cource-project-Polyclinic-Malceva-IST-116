@@ -420,6 +420,8 @@
     <Content Include="Views\Prescription\Index.cshtml" />
     <Content Include="Views\Prescription\Create.cshtml" />
     <Content Include="Views\Prescription\Details.cshtml" />
+    <Content Include="Views\Patient\DetailsUser.cshtml" />
+    <Content Include="Views\Prescription\GetUserPrescription.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

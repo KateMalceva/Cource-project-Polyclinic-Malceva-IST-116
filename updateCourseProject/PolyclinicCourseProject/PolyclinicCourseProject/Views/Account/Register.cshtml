@@ -36,9 +36,13 @@
         </div>
     </div>
 
-    <h5>Зарегистрировать пользователя как доктора</h5>  
-    @Html.CheckBoxFor(model => model.CheckBox)
-
+    if (User.IsInRole("Admin"))
+    {
+        <div style=" background-color:lightsalmon; width: 475px;">
+            @Html.CheckBoxFor(model => model.CheckBox)
+            <h4 style="float: left; margin-top: 0px; margin-right: 15px;"><b>Зарегистрировать пользователя как доктора</b></h4>
+        </div>
+    }
     <div class="form-actions">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Регистрация" class="btn btn-default" />

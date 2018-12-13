@@ -24,6 +24,10 @@ namespace PolyclinicCourseProject
 
         [NotMapped]
         public List<list_of_diagnoses> ListDiagnoses { get; set; }
+        [NotMapped]
+        public string FIO2 { get; set; }
+        [NotMapped]
+        public string Diagnose { get; set; }
 
         public virtual doctor doctor { get; set; }
         public virtual list_of_diagnoses list_of_diagnoses { get; set; }

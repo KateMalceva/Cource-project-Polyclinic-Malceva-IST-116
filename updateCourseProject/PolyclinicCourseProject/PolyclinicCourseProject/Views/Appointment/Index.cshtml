@@ -4,87 +4,61 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>All appointments</h2>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.id_doctor)
+            Doctor
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_patient)
+            Patient
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Info_about_appointment)
+            About appointment
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_diagnosis)
+            Diagnose
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Theraphy)
+            Theraphy
         </th>
         <th></th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Info_about_appointment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Theraphy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.doctor.Surname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.list_of_diagnoses.Diagnose_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.patient.Surname)
-        </th>
-        <th></th>*@
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_doctor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_patient)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Info_about_appointment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.id_diagnosis)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Theraphy)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Info_about_appointment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Theraphy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.doctor.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.list_of_diagnoses.Diagnose_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.patient.Surname)
-        </td>*@
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.Appointment_id }) |*@
-            @Html.ActionLink("Details", "Details", new { id = item.Appointment_id }) @*|*@
-            @*@Html.ActionLink("Delete", "Delete", new { id = item.Appointment_id })*@
-        </td>
-    </tr>
+    @{  int i = 0;
+        int j = 0;
+
+        foreach (var item in Model)
+        {
+            var fio = (@ViewData["FIO"] as List<PolyclinicCourseProject.Models.FIO2>).ElementAt(i);
+            string Fio = fio.surname + " " + fio.name + " " + fio.patronymic;
+            var pfio = (@ViewData["pFIO"] as List<PolyclinicCourseProject.Models.pFIO>).ElementAt(j);
+            string pFio = pfio.surname + " " + pfio.name + " " + pfio.patronymic;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Fio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => pFio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Info_about_appointment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diagnose)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Theraphy)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id1 = item.id_patient, id = item.Appointment_id, idDoctor = item.id_doctor, idDiagnose = item.id_diagnosis })
+                </td>
+            </tr>
+            i++;
+            j++;
+        }
 }
-
 </table>
 
 <div>

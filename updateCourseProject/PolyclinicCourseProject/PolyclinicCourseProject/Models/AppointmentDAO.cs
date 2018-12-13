@@ -6,6 +6,32 @@ using Microsoft.AspNet.Identity;
 
 namespace PolyclinicCourseProject.Models
 {
+    public class FIO2
+    {
+        public string surname;
+        public string name;
+        public string patronymic;
+        public FIO2(string surname, string name, string patronymic)
+        {
+            this.surname = surname;
+            this.name = name;
+            this.patronymic = patronymic;
+        }
+    }
+
+    public class pFIO
+    {
+        public string surname;
+        public string name;
+        public string patronymic;
+        public pFIO(string surname, string name, string patronymic)
+        {
+            this.surname = surname;
+            this.name = name;
+            this.patronymic = patronymic;
+        }
+    }
+
     public class AppointmentDAO
     {
         public List<appointment> GetAppointment(int id_patient)
@@ -46,13 +72,13 @@ namespace PolyclinicCourseProject.Models
             { }
         }
 
-        public appointment DetailsAppointment(int Appointment_id)
+        public appointment DetailsAppointment(/*int id_patient*/int Appointment_id)
         {
             appointment appointment = new appointment();
             using (var ctx = new PolyclinicEntities())
             {
                 string query = "SELECT * FROM appointment where Appointment_id = @P0";
-                appointment = ctx.Database.SqlQuery<appointment>(query, Appointment_id).ToList().First();
+                appointment = ctx.Database.SqlQuery<appointment>(query, /*id_patient*/Appointment_id).ToList().First();
             }
             return appointment;
         }

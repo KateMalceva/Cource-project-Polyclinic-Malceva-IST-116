@@ -4,18 +4,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<p>
-    @Html.ActionLink("Create New", "Create"@*, new { id = Model.id_patient }*@)
-</p>
+<h2>All prescriptions</h2>
+
+@Html.ActionLink("Create new prescription", "Create", new { id = ViewData["patientID"] })
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.id_doctor)
+            Doctor
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.id_patient)
+            Patient
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
@@ -26,32 +25,36 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_doctor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_patient)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id=item.Prescription_id }) |*@
-                @Html.ActionLink("Details", "Details", new { id = item.Prescription_id }) @*|*@
-                @*@Html.ActionLink("Delete", "Delete", new { id=item.Prescription_id })*@
-            </td>
-        </tr>
+    @{ int i = 0;
+        int j = 0;
+        foreach (var item in Model)
+        {
+            var fio = (@ViewData["FIO"] as List<PolyclinicCourseProject.Models.FIO2>).ElementAt(i);
+            string Fio = fio.surname + " " + fio.name + " " + fio.patronymic;
+            var pfio = (@ViewData["pFIO"] as List<PolyclinicCourseProject.Models.pFIO>).ElementAt(j);
+            string pFio = pfio.surname + " " + pfio.name + " " + pfio.patronymic;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Fio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => pFio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new {id1 = item.id_patient,  id = item.Prescription_id, idDoctor = item.id_doctor })
+                </td>
+            </tr>
+            i++;
+            j++;
+        }
     }
-
 </table>
-
-@*<input type="button" value="Create prescription" onclick="location.href='@Url.Action("Create", "Prescription", new { id = Model.id_patient })'" class="btn btn-default" />*@
 
 <div>
     @Html.ActionLink("Back to List", "Index", "Patient")

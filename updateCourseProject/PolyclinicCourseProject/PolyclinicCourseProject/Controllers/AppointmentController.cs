@@ -15,6 +15,46 @@ namespace PolyclinicCourseProject.Controllers
         public ActionResult Index(int id)
         {
             var appointment = appointmentDAO.GetAppointment(id);
+            string query= string.Format("select d.* from doctor d inner join appointment dt on d.Doctor_id = dt.id_doctor where dt.id_patient={0}", id);
+            List<doctor> doctors = new List<doctor>();
+            using (PolyclinicEntities ctx = new PolyclinicEntities())
+            {
+                doctors.AddRange(ctx.Database.SqlQuery<doctor>(query).ToList());
+            }
+            List<FIO2> fio = new List<FIO2>();
+            foreach (doctor el in doctors)
+            {
+                fio.Add(new FIO2(el.Surname, el.Name, el.Patronymic));
+            }
+            ViewData["FIO"] = fio;
+
+            string pquery = string.Format("select p.* from patient p inner join appointment dt on p.Patient_id = dt.id_patient where dt.id_patient={0}", id);
+            List<patient> patients = new List<patient>();
+            using (PolyclinicEntities ctx = new PolyclinicEntities())
+            {
+                patients.AddRange(ctx.Database.SqlQuery<patient>(pquery).ToList());
+            }
+            List<pFIO> pfio = new List<pFIO>();
+            foreach (patient el in patients)
+            { 
+                pfio.Add(new pFIO(el.Surname, el.Name, el.Patronymic));
+            }
+            ViewData["pFIO"] = pfio;
+
+            string squery = string.Format("select ds.Diagnose_name from list_of_diagnoses ds inner join appointment dt on ds.List_diagnoses_id = dt.id_diagnosis where dt.id_patient={0}", id);
+            List<string> diagnoses = new List<string>();
+            using (PolyclinicEntities ctx = new PolyclinicEntities())
+            {
+                diagnoses.AddRange(ctx.Database.SqlQuery<string>(squery).ToList());
+            }
+
+            int k = 0;
+            foreach (appointment el in appointment)
+            {
+                el.Diagnose = diagnoses.ElementAt(k);
+                k++;
+            }
+
             return View(appointment);
         }
 
@@ -52,8 +92,20 @@ namespace PolyclinicCourseProject.Controllers
 
         //Details
         [HttpGet]
-        public ActionResult Details(int id)
+        public ActionResult Details(int id1, int id, int idDoctor, int idDiagnose)
         {
+            using (PolyclinicEntities db = new PolyclinicEntities())
+            {
+                string patientFIO = string.Format("select * from patient where Patient_id={0}", id1);
+                List<patient> plist = db.Database.SqlQuery<patient>(patientFIO).ToList();
+                ViewData["patientFIO"] = plist;
+                string doctorFIO = string.Format("select * from doctor where Doctor_id={0}", idDoctor);
+                List<doctor> dlist = db.Database.SqlQuery<doctor>(doctorFIO).ToList();
+                ViewData["doctorFIO"] = dlist;
+                string diagnose = string.Format("select * from list_of_diagnoses where List_diagnoses_id={0}", idDiagnose);
+                List<list_of_diagnoses> diagnoselist = db.Database.SqlQuery<list_of_diagnoses>(diagnose).ToList();
+                ViewData["diagnose"] = diagnoselist;
+            }
             var appointment = appointmentDAO.DetailsAppointment(id);
             return View(appointment);
         }

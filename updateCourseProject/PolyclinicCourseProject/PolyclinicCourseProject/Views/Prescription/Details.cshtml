@@ -4,47 +4,62 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>About prescription</h2>
 
 <div>
-    <h4>prescription</h4>
+    <h4></h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.id_doctor)
-        </dt>
+        <div>
+            @{ var FIO = (ViewData["patientFIO"] as List<PolyclinicCourseProject.patient>).ElementAt(0);
+                string fio = FIO.Surname + " " + FIO.Name + " " + FIO.Patronymic;
+                var dFIO = (ViewData["doctorFIO"] as List<PolyclinicCourseProject.doctor>).ElementAt(0);
+                string dfio = dFIO.Surname + " " + dFIO.Name + " " + dFIO.Patronymic;
+                <dt>
+                    Doctor
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.id_doctor)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => dfio)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.id_patient)
-        </dt>
+                <dt>
+                    Patient
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.id_patient)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => fio)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Date)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Date)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Content)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
+                <dd>
+                    @Html.DisplayFor(model => model.Content)
+                </dd>
+            }
+        </div>
     </dl>
 </div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Prescription_id }) |*@
-    @Html.ActionLink("Back to List", "Index", new { id = Model.id_patient })
-</p>
+@if (User.IsInRole("Doctor"))
+{
+    <p>
+        @Html.ActionLink("Back to List", "Index", new { id = Model.id_patient })
+    </p>
+}
+@if (User.IsInRole("Patient"))
+{
+    <p>
+        @Html.ActionLink("Back to List", "GetUserPrescription", new { id = Model.id_patient })
+    </p>
+}
+
