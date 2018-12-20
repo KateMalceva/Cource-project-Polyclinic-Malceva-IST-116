@@ -51,7 +51,7 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
 
-        @if (item.Status == "Finished" || item.Status == "Cancelled" || item.Status == "Patient didn't come")
+        @if (item.Status == "Finished" || item.Status == "Cancelled")
         {
             <td>Not available</td>
         }
