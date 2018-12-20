@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using NLog;
 using PolyclinicCourseProject.Models;
 
 namespace PolyclinicCourseProject.Controllers
@@ -12,6 +13,7 @@ namespace PolyclinicCourseProject.Controllers
     {
         private readonly PrescriptionDAO prescriptionDAO = new PrescriptionDAO();
         private readonly PatientDAO patientDAO = new PatientDAO();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public ActionResult Index(int id)
         {
@@ -115,7 +117,9 @@ namespace PolyclinicCourseProject.Controllers
                 return RedirectToAction("Index", "Patient");
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return RedirectToAction("Index", "Patient");
         }
 

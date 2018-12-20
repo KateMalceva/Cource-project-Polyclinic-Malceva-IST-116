@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NLog;
 using PolyclinicCourseProject.Models;
 
 namespace PolyclinicCourseProject.Controllers
@@ -10,6 +11,7 @@ namespace PolyclinicCourseProject.Controllers
     public class ListSpecialtyController : Controller
     {
         private readonly ListSpecialtyDAO specialtyDAO = new ListSpecialtyDAO();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         // GET
         public ActionResult Index()
@@ -34,7 +36,9 @@ namespace PolyclinicCourseProject.Controllers
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return RedirectToAction("Index");
         }
 
@@ -56,7 +60,9 @@ namespace PolyclinicCourseProject.Controllers
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return RedirectToAction("Index");
         }
 

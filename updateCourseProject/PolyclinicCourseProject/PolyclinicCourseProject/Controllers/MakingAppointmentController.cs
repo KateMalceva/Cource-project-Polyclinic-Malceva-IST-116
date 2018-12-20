@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using NLog;
 using PolyclinicCourseProject.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace PolyclinicCourseProject.Controllers
     public class MakingAppointmentController : Controller
     {
         private readonly MakingAppointmentDAO appointmentDAO = new MakingAppointmentDAO();
-        //PolyclinicEntities1 db = new PolyclinicEntities1();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         //Appointments for admin
         public ActionResult Index()
@@ -116,17 +117,9 @@ namespace PolyclinicCourseProject.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //string userId = User.Identity.GetUserId();
             making_appointment appointment = new making_appointment();
-            //Entities ent = new Entities();
-            //var userPhoneNumber = ent.AspNetUsers.Find(userId).PhoneNumber;
-
             using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
-                //var idPatient = db.patient.FirstOrDefault(x => x.Phone_number.ToString() == userPhoneNumber).Patient_id;
-                //appointment.id_patient = idPatient;
-                //appointment.Status = "Available";
-
                 string doctorFIO = string.Format("select * from doctor");
                 List<doctor> dlist = db.Database.SqlQuery<doctor>(doctorFIO).ToList();
                 foreach (doctor el in dlist)
@@ -182,7 +175,9 @@ namespace PolyclinicCourseProject.Controllers
                 return RedirectToAction("GetMakingAppointment", "MakingAppointment");
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return RedirectToAction("GetMakingAppointment", "MakingAppointment");
         }
 
@@ -191,11 +186,6 @@ namespace PolyclinicCourseProject.Controllers
         public ActionResult Edit(int id)
         {
             var app = appointmentDAO.GetAppointment().FirstOrDefault(x => x.id_patient == id);
-            //making_appointment appointment = new making_appointment();
-            //using (PolyclinicEntities1 db = new PolyclinicEntities1())
-            //{
-            //    appointment.Status = "Cancelled";
-            //}
             return View(app);
         }
 
@@ -209,34 +199,10 @@ namespace PolyclinicCourseProject.Controllers
                 return RedirectToAction("GetMakingAppointment", "MakingAppointment");
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return RedirectToAction("GetMakingAppointment", "MakingAppointment");
         }
-
-        //[HttpGet]
-        //public ActionResult EditPatientNotCome(int id)
-        //{
-        //    var app = appointmentDAO.GetAppointment().FirstOrDefault(x => x.id_patient == id);
-        //    making_appointment appointment = new making_appointment();
-        //    using (PolyclinicEntities1 db = new PolyclinicEntities1())
-        //    {
-        //        appointment.Status = "Not come";
-        //    }
-        //    return View(app);
-        //}
-
-        //[HttpPost]
-        //public ActionResult EditPatientNotCome(making_appointment model)
-        //{
-        //    try
-        //    {
-        //        int id = Convert.ToInt32(ControllerContext.RouteData.Values.Values.ElementAt(2));
-        //        appointmentDAO.EditAppointmentNotCome(model, id);
-        //        return RedirectToAction("DoctorGetMakingAppointment", "MakingAppointment");
-        //    }
-        //    catch (Exception ex)
-        //    { }
-        //    return RedirectToAction("DoctorGetMakingAppointment", "MakingAppointment");
-        //}
     }
 }

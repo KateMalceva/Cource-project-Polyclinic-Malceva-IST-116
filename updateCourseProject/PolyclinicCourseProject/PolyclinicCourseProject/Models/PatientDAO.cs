@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +8,8 @@ namespace PolyclinicCourseProject.Models
 {
     public class PatientDAO
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public List<patient> GetPatient()
         {
             List<patient> patients = new List<patient>();
@@ -19,7 +22,9 @@ namespace PolyclinicCourseProject.Models
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return patients;
         }
 
@@ -41,19 +46,23 @@ namespace PolyclinicCourseProject.Models
                     };
                     object[] parameters = parameterList.ToArray();
                     int result = ctx.Database.ExecuteSqlCommand(query, parameters);
-
+                    logger.Info("Данные успешно добавлены в patient");
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
         }
 
         public void EditPatient(patient model, int Patient_id)
         {
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "update patient set Surname=@P1, Name=@P2, Patronymic=@P3, Date_of_birth=@P4, Phone_number=@P5, Adress=@P6, Insurance_policy=@P7 where Patient_id=@P0";
-                List<object> parameterList = new List<object>{
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "update patient set Surname=@P1, Name=@P2, Patronymic=@P3, Date_of_birth=@P4, Phone_number=@P5, Adress=@P6, Insurance_policy=@P7 where Patient_id=@P0";
+                    List<object> parameterList = new List<object>{
                         Patient_id,
                         model.Surname,
                         model.Name,
@@ -63,8 +72,14 @@ namespace PolyclinicCourseProject.Models
                         model.Adress,
                         model.Insurance_policy
                     };
-                object[] parameters = parameterList.ToArray();
-                int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    object[] parameters = parameterList.ToArray();
+                    int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные в patient успешно изменены");
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
         }
 
@@ -72,10 +87,17 @@ namespace PolyclinicCourseProject.Models
         public patient DetailsPatient(int Patient_id)
         {
             patient patient = new patient();
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "SELECT * FROM patient where Patient_id = @P0";
-                patient = ctx.Database.SqlQuery<patient>(query, Patient_id).ToList().First();
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "SELECT * FROM patient where Patient_id = @P0";
+                    patient = ctx.Database.SqlQuery<patient>(query, Patient_id).ToList().First();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
             return patient;
         }

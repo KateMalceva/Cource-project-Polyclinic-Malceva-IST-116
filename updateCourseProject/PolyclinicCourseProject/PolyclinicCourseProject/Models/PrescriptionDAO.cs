@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +8,8 @@ namespace PolyclinicCourseProject.Models
 {
     public class PrescriptionDAO
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public List<prescription> GetPrescription(int id_patient)
         {
             List<prescription> prescriptions = new List<prescription>();
@@ -19,7 +22,9 @@ namespace PolyclinicCourseProject.Models
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return prescriptions;
         }
 
@@ -38,19 +43,29 @@ namespace PolyclinicCourseProject.Models
                     };
                     object[] parameters = parameterList.ToArray();
                     int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные успешно добавлены в prescription");
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
         }
 
         public prescription DetailsPrescription(int Prescription_id)
         {
             prescription prescription= new prescription();
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "SELECT * FROM prescription where Prescription_id = @P0";
-                prescription = ctx.Database.SqlQuery<prescription>(query, Prescription_id).ToList().First();
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "SELECT * FROM prescription where Prescription_id = @P0";
+                    prescription = ctx.Database.SqlQuery<prescription>(query, Prescription_id).ToList().First();
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
             return prescription;
         }

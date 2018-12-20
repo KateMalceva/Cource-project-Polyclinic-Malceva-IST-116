@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity;
+using NLog;
 
 namespace PolyclinicCourseProject.Models
 {
@@ -34,6 +35,8 @@ namespace PolyclinicCourseProject.Models
 
     public class AppointmentDAO
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public List<appointment> GetAppointment(int id_patient)
         {
             List<appointment> appointments = new List<appointment>();
@@ -46,7 +49,9 @@ namespace PolyclinicCourseProject.Models
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return appointments;
         }
 
@@ -67,6 +72,7 @@ namespace PolyclinicCourseProject.Models
                     };
                     object[] parameters = parameterList.ToArray();
                     int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные успешно добавлены в appointment");
 
                     making_appointment model1 = new making_appointment();
                     string query1 = string.Format("update making_appointment set Status='Finished' where Record_id={0}", model.idapp);
@@ -76,19 +82,29 @@ namespace PolyclinicCourseProject.Models
                     };
                     object[] parameters1 = parameterList.ToArray();
                     int result1 = ctx.Database.ExecuteSqlCommand(query1, parameters1);
+                    logger.Info("Данные в making_appointment успешно изменены");
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
         }
 
         public appointment DetailsAppointment(int Appointment_id)
         {
             appointment appointment = new appointment();
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "SELECT * FROM appointment where Appointment_id = @P0";
-                appointment = ctx.Database.SqlQuery<appointment>(query,Appointment_id).ToList().First();
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "SELECT * FROM appointment where Appointment_id = @P0";
+                    appointment = ctx.Database.SqlQuery<appointment>(query, Appointment_id).ToList().First();
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
             return appointment;
         }

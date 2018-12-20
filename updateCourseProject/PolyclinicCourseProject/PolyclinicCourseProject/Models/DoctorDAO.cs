@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,10 +8,7 @@ namespace PolyclinicCourseProject.Models
 {
     public class DoctorDAO
     {
-    //    public int Doctor_id { get; set; }
-    //    public string Surname { get; set; }
-    //    public int id_specialty { get; set; }
-    //    public list_of_specialty Specialty { get; set; }
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public List<doctor> GetDoctor()
         {
@@ -24,7 +22,9 @@ namespace PolyclinicCourseProject.Models
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return doctors;
         }
 
@@ -46,18 +46,23 @@ namespace PolyclinicCourseProject.Models
                     };
                     object[] parameters = parameterList.ToArray();
                     int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные успешно добавлены в doctor");
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
         }
 
         public void EditDoctor(doctor model, int Doctor_id)
         {
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "update doctor set Surname=@P1, Name=@P2, Patronymic=@P3, Date_of_birth=@P4, Phone_number=@P5, id_specialty=@P6, Education=@P7 where Doctor_id=@P0";
-                List<object> parameterList = new List<object>{
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "update doctor set Surname=@P1, Name=@P2, Patronymic=@P3, Date_of_birth=@P4, Phone_number=@P5, id_specialty=@P6, Education=@P7 where Doctor_id=@P0";
+                    List<object> parameterList = new List<object>{
                         model.Doctor_id,
                         model.Surname,
                         model.Name,
@@ -67,8 +72,14 @@ namespace PolyclinicCourseProject.Models
                         model.id_specialty,
                         model.Education
                     };
-                object[] parameters = parameterList.ToArray();
-                int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    object[] parameters = parameterList.ToArray();
+                    int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные в doctor успешно изменены");
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
         }
 
@@ -76,10 +87,17 @@ namespace PolyclinicCourseProject.Models
         public doctor DetailsDoctor(int Doctor_id)
         {
             doctor doctor = new doctor();
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "SELECT * FROM doctor where Doctor_id = @P0";
-                doctor = ctx.Database.SqlQuery<doctor>(query, Doctor_id).ToList().First();
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "SELECT * FROM doctor where Doctor_id = @P0";
+                    doctor = ctx.Database.SqlQuery<doctor>(query, Doctor_id).ToList().First();
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
             return doctor;
         }

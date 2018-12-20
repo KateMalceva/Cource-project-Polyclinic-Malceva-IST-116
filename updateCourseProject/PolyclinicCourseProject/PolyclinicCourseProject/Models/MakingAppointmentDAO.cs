@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -59,6 +60,8 @@ namespace PolyclinicCourseProject.Models
 
     public class MakingAppointmentDAO
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public List<making_appointment> GetAppointment()
         {
             List<making_appointment> making_Appointments = new List<making_appointment>();
@@ -71,7 +74,9 @@ namespace PolyclinicCourseProject.Models
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return making_Appointments;
         }
 
@@ -87,7 +92,9 @@ namespace PolyclinicCourseProject.Models
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return making_Appointments;
         }
 
@@ -103,14 +110,16 @@ namespace PolyclinicCourseProject.Models
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return making_Appointments;
         }
 
         public void CreateAppointment(making_appointment model)
         {
-            //try
-            //{
+            try
+            {
                 using (var ctx = new PolyclinicEntities1())
                 {
                     string query = "INSERT INTO making_appointment (Date, Time, id_doctor, id_patient, Status) VALUES(@P0, @P1, @P2, @P3, @P4)";
@@ -123,62 +132,51 @@ namespace PolyclinicCourseProject.Models
                     };
                     object[] parameters = parameterList.ToArray();
                     int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные успешно добавлены в making_appointment");
                 }
-            //}
-            //catch (Exception ex)
-            //{ }
+            }
+            catch (Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
+            }
         }
 
         public void EditAppointment(making_appointment model, int Record_id)
         {
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "update making_appointment set Status='Cancelled' where Record_id=@P0";
-                List<object> parameterList = new List<object>{
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "update making_appointment set Status='Cancelled' where Record_id=@P0";
+                    List<object> parameterList = new List<object>{
                         Record_id,
                         model.Status
                     };
-                object[] parameters = parameterList.ToArray();
-                int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    object[] parameters = parameterList.ToArray();
+                    int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные в making_appointment успешно изменены");
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
         }
-
-        //public void EditAppointmentNotCome(making_appointment model, int Record_id)
-        //{
-        //    using (var ctx = new PolyclinicEntities1())
-        //    {
-        //        string query = "update making_appointment set Status='Not come' where Record_id=@P0";
-        //        List<object> parameterList = new List<object>{
-        //                Record_id,
-        //                model.Status
-        //            };
-        //        object[] parameters = parameterList.ToArray();
-        //        int result = ctx.Database.ExecuteSqlCommand(query, parameters);
-        //    }
-        //}
-
-        //public void EditAppointmentFinish(making_appointment model, int Record_id)
-        //{
-        //    using (var ctx = new PolyclinicEntities1())
-        //    {
-        //        string query = "update making_appointment set Status='Finished' where Record_id=@P0";
-        //        List<object> parameterList = new List<object>{
-        //                Record_id,
-        //                model.Status
-        //            };
-        //        object[] parameters = parameterList.ToArray();
-        //        int result = ctx.Database.ExecuteSqlCommand(query, parameters);
-        //    }
-        //}
-
 
         public making_appointment DetailsAppointment(int Record_id)
         {
             making_appointment making = new making_appointment();
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "SELECT * FROM making_appointment where Record_id = @P0";
-                making = ctx.Database.SqlQuery<making_appointment>(query, Record_id).ToList().First();
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "SELECT * FROM making_appointment where Record_id = @P0";
+                    making = ctx.Database.SqlQuery<making_appointment>(query, Record_id).ToList().First();
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
             return making;
         }

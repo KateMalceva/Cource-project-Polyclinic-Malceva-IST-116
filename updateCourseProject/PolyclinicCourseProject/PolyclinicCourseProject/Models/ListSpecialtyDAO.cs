@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +8,9 @@ namespace PolyclinicCourseProject.Models
 {
     public class ListSpecialtyDAO
     {
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public List<list_of_specialty> GetSpecialty()
         {
             List<list_of_specialty> specialties = new List<list_of_specialty>();
@@ -19,7 +23,9 @@ namespace PolyclinicCourseProject.Models
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return specialties;
         }
 
@@ -37,35 +43,53 @@ namespace PolyclinicCourseProject.Models
                     };
                     object[] parameters = parameterList.ToArray();
                     int result = ctx.Database.ExecuteSqlCommand(query, parameters);
-
+                    logger.Info("Данные успешно добавлены в list_of_specialty");
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
         }
 
         public void EditSpecialty(list_of_specialty model, int Specialty_id)
         {
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "update list_of_specialty set Specialty_name=@P1, Description=@P2 where Specialty_id=@P0";
-                List<object> parameterList = new List<object>{
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "update list_of_specialty set Specialty_name=@P1, Description=@P2 where Specialty_id=@P0";
+                    List<object> parameterList = new List<object>{
                         Specialty_id,
                         model.Specialty_name,
                         model.Description
                     };
-                object[] parameters = parameterList.ToArray();
-                int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    object[] parameters = parameterList.ToArray();
+                    int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные в list_of_specialty успешно изменены");
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
         }
 
         public list_of_specialty DetailsSpecialty(int Specialty_id)
         {
             list_of_specialty list = new list_of_specialty();
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "SELECT * FROM list_of_specialty where Specialty_id = @P0";
-                list = ctx.Database.SqlQuery<list_of_specialty>(query, Specialty_id).ToList().First();
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "SELECT * FROM list_of_specialty where Specialty_id = @P0";
+                    list = ctx.Database.SqlQuery<list_of_specialty>(query, Specialty_id).ToList().First();
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
             return list;
         }

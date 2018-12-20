@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NLog;
 using PolyclinicCourseProject.Models;
 
 namespace PolyclinicCourseProject.Controllers
@@ -10,6 +11,7 @@ namespace PolyclinicCourseProject.Controllers
     public class DoctorsTimetableController : Controller
     {
         private readonly DoctorsTimetableDAO timetableDAO = new DoctorsTimetableDAO();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         // GET: Patient
         public ActionResult Index()
@@ -75,7 +77,9 @@ namespace PolyclinicCourseProject.Controllers
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return RedirectToAction("Index");
         }
 
@@ -86,9 +90,7 @@ namespace PolyclinicCourseProject.Controllers
             doctors_timetable timetable = new doctors_timetable();
             using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
-                //if (id != 0)
                 timetable = db.doctors_timetable.Where(x => x.Timetable_id == id).FirstOrDefault();
-                //timetable.ListDoctor = db.doctor.ToList<doctor>();
                 string docFIO = string.Format("select * from doctor");
                 List<doctor> doclist = db.Database.SqlQuery<doctor>(docFIO).ToList();
                 foreach (doctor el in doclist)
@@ -111,7 +113,9 @@ namespace PolyclinicCourseProject.Controllers
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return RedirectToAction("Index");
         }
     }

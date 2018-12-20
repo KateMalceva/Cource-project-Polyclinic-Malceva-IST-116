@@ -262,3 +262,6 @@ C:\Users\dns\GitHub\Cource-project-Polyclinic-Malceva-IST-116\updateCourseProjec
 C:\Users\dns\GitHub\Cource-project-Polyclinic-Malceva-IST-116\updateCourseProject\PolyclinicCourseProject\PolyclinicCourseProject\obj\Debug\PolyclinicCourseProject.csproj.CopyComplete
 C:\Users\dns\GitHub\Cource-project-Polyclinic-Malceva-IST-116\updateCourseProject\PolyclinicCourseProject\PolyclinicCourseProject\obj\Debug\PolyclinicCourseProject.dll
 C:\Users\dns\GitHub\Cource-project-Polyclinic-Malceva-IST-116\updateCourseProject\PolyclinicCourseProject\PolyclinicCourseProject\obj\Debug\PolyclinicCourseProject.pdb
+C:\Users\dns\GitHub\Cource-project-Polyclinic-Malceva-IST-116\updateCourseProject\PolyclinicCourseProject\PolyclinicCourseProject\bin\NLog.config
+C:\Users\dns\GitHub\Cource-project-Polyclinic-Malceva-IST-116\updateCourseProject\PolyclinicCourseProject\PolyclinicCourseProject\bin\NLog.dll
+C:\Users\dns\GitHub\Cource-project-Polyclinic-Malceva-IST-116\updateCourseProject\PolyclinicCourseProject\PolyclinicCourseProject\bin\NLog.xml

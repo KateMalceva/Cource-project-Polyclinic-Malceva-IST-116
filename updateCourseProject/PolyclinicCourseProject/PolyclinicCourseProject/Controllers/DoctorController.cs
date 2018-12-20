@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NLog;
 using PolyclinicCourseProject.Models;
 
 namespace PolyclinicCourseProject.Controllers
@@ -10,6 +11,7 @@ namespace PolyclinicCourseProject.Controllers
     public class DoctorController : Controller
     {
         private readonly DoctorDAO doctorDAO = new DoctorDAO();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         // GET: Patient
         public ActionResult Index()
@@ -54,7 +56,9 @@ namespace PolyclinicCourseProject.Controllers
                 return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return RedirectToAction("Index", "Home");
         }
 
@@ -69,9 +73,7 @@ namespace PolyclinicCourseProject.Controllers
                     doctor = db.doctor.Where(x => x.Doctor_id == id).FirstOrDefault();
                 doctor.ListSpetialty = db.list_of_specialty.ToList<list_of_specialty>();
             }
-
             return View(doctor);
-            //return View();
         }
 
         [HttpPost]
@@ -84,7 +86,9 @@ namespace PolyclinicCourseProject.Controllers
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return RedirectToAction("Index");
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,6 +22,8 @@ namespace PolyclinicCourseProject.Models
 
     public class DoctorsTimetableDAO
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public List<doctors_timetable> GetTimetable()
         {
             List<doctors_timetable> timetable = new List<doctors_timetable>();
@@ -30,11 +33,12 @@ namespace PolyclinicCourseProject.Models
                 {
                     string query = "SELECT * FROM doctors_timetable";
                     timetable.AddRange(ctx.Database.SqlQuery<doctors_timetable>(query).ToList());
-
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
             return timetable;
         }
 
@@ -56,18 +60,23 @@ namespace PolyclinicCourseProject.Models
                     };
                     object[] parameters = parameterList.ToArray();
                     int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные успешно добавлены в doctors_timetable");
                 }
             }
             catch (Exception ex)
-            { }
+            {
+                logger.Error("Ошибка: ", ex);
+            }
         }
 
         public void EditTimetable(doctors_timetable model, int Timetable_id)
         {
-            using (var ctx = new PolyclinicEntities1())
+            try
             {
-                string query = "update doctors_timetable set id_doctor=@P1, Monday=@P2, Tuesday=@P3, Wednesday=@P4, Thursday=@P5, Friday=@P6 where Timetable_id=@P0";
-                List<object> parameterList = new List<object>{
+                using (var ctx = new PolyclinicEntities1())
+                {
+                    string query = "update doctors_timetable set id_doctor=@P1, Monday=@P2, Tuesday=@P3, Wednesday=@P4, Thursday=@P5, Friday=@P6 where Timetable_id=@P0";
+                    List<object> parameterList = new List<object>{
                         model.Timetable_id,
                         model.id_doctor,
                         model.Monday,
@@ -76,8 +85,14 @@ namespace PolyclinicCourseProject.Models
                         model.Thursday,
                         model.Friday
                     };
-                object[] parameters = parameterList.ToArray();
-                int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    object[] parameters = parameterList.ToArray();
+                    int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+                    logger.Info("Данные в doctors_timetable успешно изменены");
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error("Ошибка: ", ex);
             }
         }
     }
