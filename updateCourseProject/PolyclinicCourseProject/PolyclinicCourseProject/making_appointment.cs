@@ -18,7 +18,7 @@ namespace PolyclinicCourseProject
         public int Record_id { get; set; }
         [DataType(DataType.Date)]
         public System.DateTime Date { get; set; }
-        public System.TimeSpan Time { get; set; }
+        public string Time { get; set; }
         public int id_doctor { get; set; }
         public int id_patient { get; set; }
         public string Status { get; set; }

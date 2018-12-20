@@ -20,7 +20,7 @@ namespace PolyclinicCourseProject.Controllers
 
             string query = string.Format("select d.* from doctor d inner join prescription dt on d.Doctor_id = dt.id_doctor where dt.id_patient={0}", id);
             List<doctor> doctors = new List<doctor>();
-            using (PolyclinicEntities ctx = new PolyclinicEntities())
+            using (PolyclinicEntities1 ctx = new PolyclinicEntities1())
             {
                 doctors.AddRange(ctx.Database.SqlQuery<doctor>(query).ToList());
             }
@@ -33,7 +33,7 @@ namespace PolyclinicCourseProject.Controllers
 
             string pquery = string.Format("select p.* from patient p inner join prescription dt on p.Patient_id = dt.id_patient where dt.id_patient={0}", id);
             List<patient> patients = new List<patient>();
-            using (PolyclinicEntities ctx = new PolyclinicEntities())
+            using (PolyclinicEntities1 ctx = new PolyclinicEntities1())
             {
                 patients.AddRange(ctx.Database.SqlQuery<patient>(pquery).ToList());
             }
@@ -53,14 +53,14 @@ namespace PolyclinicCourseProject.Controllers
             patient patient1 = new patient();
             Entities ent = new Entities();
             var userPhoneNumber = ent.AspNetUsers.Find(userId).PhoneNumber;
-            using (PolyclinicEntities db = new PolyclinicEntities())
+            using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
                 var patientId = db.patient.FirstOrDefault(x => x.Phone_number.ToString() == userPhoneNumber).Patient_id;
                 var prescription = prescriptionDAO.GetPrescription(patientId);
 
                 string query = string.Format("select d.* from doctor d inner join prescription dt on d.Doctor_id = dt.id_doctor where dt.id_patient={0}", patientId);
                 List<doctor> doctors = new List<doctor>();
-                using (PolyclinicEntities ctx = new PolyclinicEntities())
+                using (PolyclinicEntities1 ctx = new PolyclinicEntities1())
                 {
                     doctors.AddRange(ctx.Database.SqlQuery<doctor>(query).ToList());
                 }
@@ -73,7 +73,7 @@ namespace PolyclinicCourseProject.Controllers
 
                 string pquery = string.Format("select p.* from patient p inner join prescription dt on p.Patient_id = dt.id_patient where dt.id_patient={0}", patientId);
                 List<patient> patients = new List<patient>();
-                using (PolyclinicEntities ctx = new PolyclinicEntities())
+                using (PolyclinicEntities1 ctx = new PolyclinicEntities1())
                 {
                     patients.AddRange(ctx.Database.SqlQuery<patient>(pquery).ToList());
                 }
@@ -97,7 +97,7 @@ namespace PolyclinicCourseProject.Controllers
             Entities ent = new Entities();
             var userPhoneNumber = ent.AspNetUsers.Find(userId).PhoneNumber;
 
-            using (PolyclinicEntities db = new PolyclinicEntities())
+            using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
                 var doctorId = db.doctor.FirstOrDefault(x => x.Phone_number.ToString() == userPhoneNumber).Doctor_id;
                 prescription.id_doctor = doctorId;
@@ -123,7 +123,7 @@ namespace PolyclinicCourseProject.Controllers
         [HttpGet]
         public ActionResult Details(int id1, int id, int idDoctor)
         {
-            using (PolyclinicEntities db = new PolyclinicEntities())
+            using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
                 string patientFIO = string.Format("select * from patient where Patient_id={0}", id1);
                 List<patient> plist = db.Database.SqlQuery<patient>(patientFIO).ToList();

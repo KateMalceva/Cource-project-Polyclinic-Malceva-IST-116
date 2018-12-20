@@ -41,7 +41,9 @@
                 @Html.DisplayFor(modelItem => item.Diagnose_name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                <div style="width:300px; height: 50px; overflow:hidden;">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </div>
             </td>
             <td>
                 @if (User.IsInRole("Admin"))

@@ -12,9 +12,9 @@ namespace PolyclinicCourseProject.Models
             List<patient> patients = new List<patient>();
             try
             {
-                using (var ctx = new PolyclinicEntities())
+                using (var ctx = new PolyclinicEntities1())
                 {
-                    string query = "SELECT * FROM patient";
+                    string query = "SELECT * FROM patient order by Surname";
                     patients.AddRange(ctx.Database.SqlQuery<patient>(query).ToList());
                 }
             }
@@ -27,7 +27,7 @@ namespace PolyclinicCourseProject.Models
         {
             try
             {
-                using (var ctx = new PolyclinicEntities())
+                using (var ctx = new PolyclinicEntities1())
                 {
                     string query = "INSERT INTO patient (Surname, Name, Patronymic, Date_of_birth, Phone_number, Adress, Insurance_policy) VALUES(@P0, @P1, @P2, @P3, @P4, @P5, @P6)";
                     List<object> parameterList = new List<object>{
@@ -50,7 +50,7 @@ namespace PolyclinicCourseProject.Models
 
         public void EditPatient(patient model, int Patient_id)
         {
-            using (var ctx = new PolyclinicEntities())
+            using (var ctx = new PolyclinicEntities1())
             {
                 string query = "update patient set Surname=@P1, Name=@P2, Patronymic=@P3, Date_of_birth=@P4, Phone_number=@P5, Adress=@P6, Insurance_policy=@P7 where Patient_id=@P0";
                 List<object> parameterList = new List<object>{
@@ -72,7 +72,7 @@ namespace PolyclinicCourseProject.Models
         public patient DetailsPatient(int Patient_id)
         {
             patient patient = new patient();
-            using (var ctx = new PolyclinicEntities())
+            using (var ctx = new PolyclinicEntities1())
             {
                 string query = "SELECT * FROM patient where Patient_id = @P0";
                 patient = ctx.Database.SqlQuery<patient>(query, Patient_id).ToList().First();

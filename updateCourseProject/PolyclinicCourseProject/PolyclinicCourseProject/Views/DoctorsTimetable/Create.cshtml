@@ -18,7 +18,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.id_doctor, "Doctor", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.id_doctor, new SelectList(Model.ListDoctor, "Doctor_id", "Name", "Surname", "Patronymic", "id_specialty"))
+                @*@Html.DropDownListFor(model => model.id_doctor, new SelectList(Model.ListDoctor, "Doctor_id", "Name", "Surname", "Patronymic", "id_specialty"))*@
+                @Html.DropDownList("id_doctor", new SelectList((System.Collections.IEnumerable)ViewData["doctorFIO"], "Doctor_id", "FIO"))
                 @Html.ValidationMessageFor(model => model.id_doctor, "", new { @class = "text-danger" })
             </div>
         </div>

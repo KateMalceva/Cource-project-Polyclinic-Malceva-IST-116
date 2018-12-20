@@ -1,0 +1,68 @@
+﻿@model IEnumerable<PolyclinicCourseProject.making_appointment>
+
+@{
+    ViewBag.Title = "DoctorGetMakingAppointment";
+}
+
+<h2>Appointments</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            Time and cabinet
+        </th>
+        <th>
+            Doctor
+        </th>
+        <th>
+            Patient
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @{ int i = 0;
+        int j = 0;
+        foreach (var item in Model)
+        {
+            var fio = (@ViewData["doctorFIO"] as List<PolyclinicCourseProject.Models.docFIO>).ElementAt(i);
+            string docFio = fio.surname + " " + fio.name + " " + fio.patronymic;
+            var pfio = (@ViewData["patientFIO"] as List<PolyclinicCourseProject.Models.patFIO>).ElementAt(j);
+            string patFio = pfio.surname + " " + pfio.name + " " + pfio.patronymic;
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => docFio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => patFio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+
+        @if (item.Status == "Finished" || item.Status == "Cancelled" || item.Status == "Patient didn't come")
+        {
+            <td>Not available</td>
+        }
+        else
+        {
+            <td>@Html.ActionLink("Start appointment", "Create", "Appointment", new { id = item.id_patient, idapp = item.Record_id }, new { })</td>
+            @*<td>@Html.ActionLink("Patient didn't come", "EditPatientNotCome", "MakingAppointment", new {id = item.id_patient}, new { })</td>*@
+        }
+    </tr>
+            i++;
+            j++;
+        }
+    }
+</table>

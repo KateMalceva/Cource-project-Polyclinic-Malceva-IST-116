@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище PolyclinicModelContainer" CdmEntityContainer="PolyclinicEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище PolyclinicModelContainer" CdmEntityContainer="PolyclinicEntities1">
     <EntitySetMapping Name="admin">
       <EntityTypeMapping TypeName="PolyclinicModel.admin">
         <MappingFragment StoreEntitySet="admin">
@@ -21,6 +21,7 @@
           <ScalarProperty Name="Info_about_appointment" ColumnName="Info_about_appointment" />
           <ScalarProperty Name="id_diagnosis" ColumnName="id_diagnosis" />
           <ScalarProperty Name="Theraphy" ColumnName="Theraphy" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

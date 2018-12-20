@@ -39,7 +39,7 @@ namespace PolyclinicCourseProject.Models
             List<appointment> appointments = new List<appointment>();
             try
             {
-                using (var ctx = new PolyclinicEntities())
+                using (var ctx = new PolyclinicEntities1())
                 {
                     string query = "SELECT * FROM appointment where id_patient = @P0";
                     appointments.AddRange(ctx.Database.SqlQuery<appointment>(query,id_patient).ToList());
@@ -54,31 +54,41 @@ namespace PolyclinicCourseProject.Models
         { 
             try
             {
-                using (var ctx = new PolyclinicEntities())
+                using (var ctx = new PolyclinicEntities1())
                 {
-                    string query = "INSERT INTO appointment (id_doctor, id_patient, Info_about_appointment, id_diagnosis, Theraphy) VALUES(@P0, @P1, @P2, @P3, @P4)";
+                    string query = "INSERT INTO appointment (id_doctor, id_patient, Info_about_appointment, id_diagnosis, Theraphy, Data) VALUES(@P0, @P1, @P2, @P3, @P4, @P5)";
                     List<object> parameterList = new List<object>{
                         model.id_doctor,
                         model.id_patient,
                         model.Info_about_appointment,
                         model.id_diagnosis,
-                        model.Theraphy
+                        model.Theraphy,
+                        model.Data
                     };
                     object[] parameters = parameterList.ToArray();
                     int result = ctx.Database.ExecuteSqlCommand(query, parameters);
+
+                    making_appointment model1 = new making_appointment();
+                    string query1 = string.Format("update making_appointment set Status='Finished' where Record_id={0}", model.idapp);
+                    List<object> parameterList1 = new List<object>{
+                        model1.Record_id,
+                        model1.Status
+                    };
+                    object[] parameters1 = parameterList.ToArray();
+                    int result1 = ctx.Database.ExecuteSqlCommand(query1, parameters1);
                 }
             }
             catch (Exception ex)
             { }
         }
 
-        public appointment DetailsAppointment(/*int id_patient*/int Appointment_id)
+        public appointment DetailsAppointment(int Appointment_id)
         {
             appointment appointment = new appointment();
-            using (var ctx = new PolyclinicEntities())
+            using (var ctx = new PolyclinicEntities1())
             {
                 string query = "SELECT * FROM appointment where Appointment_id = @P0";
-                appointment = ctx.Database.SqlQuery<appointment>(query, /*id_patient*/Appointment_id).ToList().First();
+                appointment = ctx.Database.SqlQuery<appointment>(query,Appointment_id).ToList().First();
             }
             return appointment;
         }

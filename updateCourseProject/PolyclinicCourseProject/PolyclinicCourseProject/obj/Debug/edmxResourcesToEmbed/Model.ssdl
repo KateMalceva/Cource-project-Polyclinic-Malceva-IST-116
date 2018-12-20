@@ -14,12 +14,13 @@
     <Key>
       <PropertyRef Name="Appointment_id" />
     </Key>
-    <Property Name="Appointment_id" Type="int" Nullable="false" />
+    <Property Name="Appointment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_doctor" Type="int" Nullable="false" />
     <Property Name="id_patient" Type="int" Nullable="false" />
     <Property Name="Info_about_appointment" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="id_diagnosis" Type="int" Nullable="false" />
     <Property Name="Theraphy" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Data" Type="date" />
   </EntityType>
   <EntityType Name="doctor">
     <Key>
@@ -66,9 +67,9 @@
     <Key>
       <PropertyRef Name="Record_id" />
     </Key>
-    <Property Name="Record_id" Type="int" Nullable="false" />
+    <Property Name="Record_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
-    <Property Name="Time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Time" Type="varchar" MaxLength="20" />
     <Property Name="id_doctor" Type="int" Nullable="false" />
     <Property Name="id_patient" Type="int" Nullable="false" />
     <Property Name="Status" Type="varchar" MaxLength="20" Nullable="false" />
@@ -90,7 +91,7 @@
     <Key>
       <PropertyRef Name="Prescription_id" />
     </Key>
-    <Property Name="Prescription_id" Type="int" Nullable="false" />
+    <Property Name="Prescription_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_doctor" Type="int" Nullable="false" />
     <Property Name="id_patient" Type="int" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />

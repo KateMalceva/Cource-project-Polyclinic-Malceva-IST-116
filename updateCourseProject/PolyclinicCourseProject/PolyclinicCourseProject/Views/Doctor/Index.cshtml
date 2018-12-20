@@ -30,7 +30,7 @@
             Phone number
         </th>
         <th>
-            ID specialty
+            Specialty
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Education)
@@ -60,7 +60,7 @@
             @Html.DisplayFor(modelItem => item.Phone_number)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.id_specialty)
+            @Html.DisplayFor(modelItem => item.Specialty)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Education)
@@ -68,7 +68,7 @@
 
         <td>
             @Html.ActionLink("Edit |", "Edit", new { id = item.Doctor_id }) 
-            @Html.ActionLink(" Details", "Details", new { id = item.Doctor_id }) 
+            @Html.ActionLink(" Details", "Details", new { id = item.Doctor_id , idSpecialty = item.id_specialty}) 
 
         </td>
     </tr>

@@ -15,6 +15,20 @@ namespace PolyclinicCourseProject.Controllers
         public ActionResult Index()
         {
             var doctor = doctorDAO.GetDoctor();
+            List<string> specialties = new List<string>();
+            using (PolyclinicEntities1 ctx = new PolyclinicEntities1())
+            {
+                string query1 = "select spec.Specialty_name from list_of_specialty spec inner join doctor d on d.id_specialty = spec.Specialty_id";
+                specialties.AddRange(ctx.Database.SqlQuery<string>(query1).ToList());
+            }
+
+            int j = 0;
+            foreach (doctor el in doctor)
+            {
+                el.Specialty = specialties.ElementAt(j);
+                j++;
+            }
+
             return View(doctor);
         }
 
@@ -23,7 +37,7 @@ namespace PolyclinicCourseProject.Controllers
         public ActionResult Create()
         {
             doctor doctor = new doctor();
-            using (PolyclinicEntities db = new PolyclinicEntities())
+            using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
                 doctor.ListSpetialty = db.list_of_specialty.ToList<list_of_specialty>();
             }
@@ -49,7 +63,7 @@ namespace PolyclinicCourseProject.Controllers
         public ActionResult Edit(int id = 0)
         {
             doctor doctor = new doctor();
-            using (PolyclinicEntities db = new PolyclinicEntities())
+            using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
                 if (id != 0)
                     doctor = db.doctor.Where(x => x.Doctor_id == id).FirstOrDefault();
@@ -76,8 +90,14 @@ namespace PolyclinicCourseProject.Controllers
 
         //Details
         [HttpGet]
-        public ActionResult Details(int id)
+        public ActionResult Details(int id, int idSpecialty)
         {
+            using (PolyclinicEntities1 db = new PolyclinicEntities1())
+            {
+                string specialty = string.Format("select * from list_of_specialty where Specialty_id={0}", idSpecialty);
+                List<list_of_specialty> splist = db.Database.SqlQuery<list_of_specialty>(specialty).ToList();
+                ViewData["specialty"] = splist;
+            }
             var doctor = doctorDAO.DetailsDoctor(id);
             return View(doctor);
         }

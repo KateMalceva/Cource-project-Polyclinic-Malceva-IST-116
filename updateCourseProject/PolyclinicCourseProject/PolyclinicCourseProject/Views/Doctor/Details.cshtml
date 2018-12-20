@@ -10,71 +10,76 @@
     <h4></h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            ID doctor
-        </dt>
+        <div>
+            @{var specialty = (ViewData["specialty"] as List<PolyclinicCourseProject.list_of_specialty>).ElementAt(0);
+                string sp = specialty.Specialty_name;
+                <dt>
+                    ID doctor
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Doctor_id)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Doctor_id)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Surname)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Surname)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Surname)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Surname)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Patronymic)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Patronymic)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Patronymic)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Patronymic)
+                </dd>
 
-        <dt>
-            Date of birth
-        </dt>
+                <dt>
+                    Date of birth
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date_of_birth)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Date_of_birth)
+                </dd>
 
-        <dt>
-            Phone number
-        </dt>
+                <dt>
+                    Phone number
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone_number)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Phone_number)
+                </dd>
 
-        <dt>
-            ID specialty
-        </dt>
+                <dt>
+                    Specialty
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.id_specialty)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => sp)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Education)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Education)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Education)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Education)
+                </dd>
 
+            }
 
+        </div>
     </dl>
 </div>
 <p>

@@ -77,7 +77,7 @@ namespace PolyclinicCourseProject.Controllers
             patient patient1 = new patient();
             Entities ent = new Entities();
             var userPhoneNumber = ent.AspNetUsers.Find(userId).PhoneNumber;
-            using (PolyclinicEntities db = new PolyclinicEntities())
+            using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
                 var patientId = db.patient.FirstOrDefault(x => x.Phone_number.ToString() == userPhoneNumber).Patient_id;
                 var patient = patientDAO.DetailsPatient(patientId);

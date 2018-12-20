@@ -10,59 +10,67 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4></h4>
-        <hr />
-        <div class="form-group">
-            @Html.LabelFor(model => model.id_doctor, "id_doctor", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.id_doctor, new { htmlAttributes = new { @class = "form-control" } })
-                @*@Html.DropDownList("id_doctor", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.ValidationMessageFor(model => model.id_doctor, "", new { @class = "text-danger" })
+<div class="form-horizontal">
+    <h4></h4>
+    <hr />
+    <div class="form-group" hidden>
+        @Html.LabelFor(model => model.id_doctor, "id_doctor", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.id_doctor, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.DropDownList("id_doctor", null, htmlAttributes: new { @class = "form-control" })*@
+            @Html.ValidationMessageFor(model => model.id_doctor, "", new { @class = "text-danger" })
 
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.id_patient, "id_patient", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.id_patient, new { htmlAttributes = new { @class = "form-control" } })
-                @*@Html.DropDownList("id_patient", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.ValidationMessageFor(model => model.id_patient, "", new { @class = "text-danger" })
-
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Info_about_appointment, "About appointment", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Info_about_appointment, 5, 50, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Info_about_appointment, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.id_diagnosis, "Diagnose", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.id_diagnosis, new SelectList(Model.ListDiagnoses, "List_diagnoses_id", "Diagnose_name"))
-                @Html.ValidationMessageFor(model => model.id_diagnosis, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Theraphy, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Theraphy, 5, 50, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Theraphy, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
         </div>
     </div>
+
+    <div class="form-group" hidden>
+        @Html.LabelFor(model => model.id_patient, "id_patient", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.id_patient, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.DropDownList("id_patient", null, htmlAttributes: new { @class = "form-control" })*@
+            @Html.ValidationMessageFor(model => model.id_patient, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Info_about_appointment, "About appointment", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Info_about_appointment, 5, 50, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Info_about_appointment, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.id_diagnosis, "Diagnose", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.id_diagnosis, new SelectList(Model.ListDiagnoses, "List_diagnoses_id", "Diagnose_name"))
+            @Html.ValidationMessageFor(model => model.id_diagnosis, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Theraphy, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Theraphy, 5, 50, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Theraphy, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Data, "Date",  htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Data, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 <div>

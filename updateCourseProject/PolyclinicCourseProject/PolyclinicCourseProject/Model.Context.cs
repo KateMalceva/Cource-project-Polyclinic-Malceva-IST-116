@@ -13,10 +13,10 @@ namespace PolyclinicCourseProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PolyclinicEntities : DbContext
+    public partial class PolyclinicEntities1 : DbContext
     {
-        public PolyclinicEntities()
-            : base("name=PolyclinicEntities")
+        public PolyclinicEntities1()
+            : base("name=PolyclinicEntities1")
         {
         }
     

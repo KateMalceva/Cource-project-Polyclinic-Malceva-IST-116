@@ -12,7 +12,7 @@ namespace PolyclinicCourseProject.Models
             List<prescription> prescriptions = new List<prescription>();
             try
             {
-                using (var ctx = new PolyclinicEntities())
+                using (var ctx = new PolyclinicEntities1())
                 {
                     string query = "SELECT * FROM prescription where id_patient = @P0";
                     prescriptions.AddRange(ctx.Database.SqlQuery<prescription>(query, id_patient).ToList());
@@ -27,7 +27,7 @@ namespace PolyclinicCourseProject.Models
         {
             try
             {
-                using (var ctx = new PolyclinicEntities())
+                using (var ctx = new PolyclinicEntities1())
                 {
                     string query = "INSERT INTO prescription (id_doctor, id_patient, Date, Content) VALUES(@P0, @P1, @P2, @P3)";
                     List<object> parameterList = new List<object>{
@@ -47,7 +47,7 @@ namespace PolyclinicCourseProject.Models
         public prescription DetailsPrescription(int Prescription_id)
         {
             prescription prescription= new prescription();
-            using (var ctx = new PolyclinicEntities())
+            using (var ctx = new PolyclinicEntities1())
             {
                 string query = "SELECT * FROM prescription where Prescription_id = @P0";
                 prescription = ctx.Database.SqlQuery<prescription>(query, Prescription_id).ToList().First();

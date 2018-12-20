@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\dns\source\repos\PolyclinicCourseProject\PolyclinicCourseProject\Model.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\dns\GitHub\Cource-project-Polyclinic-Malceva-IST-116\updateCourseProject\PolyclinicCourseProject\PolyclinicCourseProject\Model.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

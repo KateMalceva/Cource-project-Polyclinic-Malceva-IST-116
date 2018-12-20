@@ -12,7 +12,7 @@ namespace PolyclinicCourseProject.Models
             List<list_of_specialty> specialties = new List<list_of_specialty>();
             try
             {
-                using (var ctx = new PolyclinicEntities())
+                using (var ctx = new PolyclinicEntities1())
                 {
                     string query = "SELECT * FROM list_of_specialty";
                     specialties.AddRange(ctx.Database.SqlQuery<list_of_specialty>(query).ToList());
@@ -27,7 +27,7 @@ namespace PolyclinicCourseProject.Models
         {
             try
             {
-                using (var ctx = new PolyclinicEntities())
+                using (var ctx = new PolyclinicEntities1())
                 {
                     string query = "INSERT INTO list_of_specialty (Specialty_name, Description) VALUES(@P0, @P1)";
                     List<object> parameterList = new List<object>{
@@ -46,7 +46,7 @@ namespace PolyclinicCourseProject.Models
 
         public void EditSpecialty(list_of_specialty model, int Specialty_id)
         {
-            using (var ctx = new PolyclinicEntities())
+            using (var ctx = new PolyclinicEntities1())
             {
                 string query = "update list_of_specialty set Specialty_name=@P1, Description=@P2 where Specialty_id=@P0";
                 List<object> parameterList = new List<object>{
@@ -62,7 +62,7 @@ namespace PolyclinicCourseProject.Models
         public list_of_specialty DetailsSpecialty(int Specialty_id)
         {
             list_of_specialty list = new list_of_specialty();
-            using (var ctx = new PolyclinicEntities())
+            using (var ctx = new PolyclinicEntities1())
             {
                 string query = "SELECT * FROM list_of_specialty where Specialty_id = @P0";
                 list = ctx.Database.SqlQuery<list_of_specialty>(query, Specialty_id).ToList().First();

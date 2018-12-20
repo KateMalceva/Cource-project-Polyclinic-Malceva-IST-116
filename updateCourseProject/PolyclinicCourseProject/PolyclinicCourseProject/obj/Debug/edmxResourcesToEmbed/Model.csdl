@@ -14,12 +14,13 @@
     <Key>
       <PropertyRef Name="Appointment_id" />
     </Key>
-    <Property Name="Appointment_id" Type="Int32" Nullable="false" />
+    <Property Name="Appointment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_doctor" Type="Int32" Nullable="false" />
     <Property Name="id_patient" Type="Int32" Nullable="false" />
     <Property Name="Info_about_appointment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="id_diagnosis" Type="Int32" Nullable="false" />
     <Property Name="Theraphy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Data" Type="DateTime" Precision="0" />
     <NavigationProperty Name="doctor" Relationship="Self.appointment_doctor_Doctor_id_fk" FromRole="appointment" ToRole="doctor" />
     <NavigationProperty Name="list_of_diagnoses" Relationship="Self.appointment_list_of_diagnoses_List_diagnoses_id_fk" FromRole="appointment" ToRole="list_of_diagnoses" />
     <NavigationProperty Name="patient" Relationship="Self.appointment_patient_Patient_id_fk" FromRole="appointment" ToRole="patient" />
@@ -77,9 +78,9 @@
     <Key>
       <PropertyRef Name="Record_id" />
     </Key>
-    <Property Name="Record_id" Type="Int32" Nullable="false" />
+    <Property Name="Record_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="id_doctor" Type="Int32" Nullable="false" />
     <Property Name="id_patient" Type="Int32" Nullable="false" />
     <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -106,7 +107,7 @@
     <Key>
       <PropertyRef Name="Prescription_id" />
     </Key>
-    <Property Name="Prescription_id" Type="Int32" Nullable="false" />
+    <Property Name="Prescription_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="id_doctor" Type="Int32" Nullable="false" />
     <Property Name="id_patient" Type="Int32" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
@@ -222,7 +223,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="PolyclinicEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="PolyclinicEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="admin" EntityType="Self.admin" />
     <EntitySet Name="appointment" EntityType="Self.appointment" />
     <EntitySet Name="doctor" EntityType="Self.doctor" />

@@ -11,6 +11,7 @@ namespace PolyclinicCourseProject
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class appointment
@@ -21,6 +22,8 @@ namespace PolyclinicCourseProject
         public string Info_about_appointment { get; set; }
         public int id_diagnosis { get; set; }
         public string Theraphy { get; set; }
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> Data { get; set; }
 
         [NotMapped]
         public List<list_of_diagnoses> ListDiagnoses { get; set; }
@@ -28,6 +31,8 @@ namespace PolyclinicCourseProject
         public string FIO2 { get; set; }
         [NotMapped]
         public string Diagnose { get; set; }
+        [NotMapped]
+        public int idapp { get; set; }
 
         public virtual doctor doctor { get; set; }
         public virtual list_of_diagnoses list_of_diagnoses { get; set; }

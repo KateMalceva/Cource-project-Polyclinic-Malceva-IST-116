@@ -82,7 +82,7 @@
                 @Html.ActionLink("Details |", "Details", new { id = item.Patient_id })
                 @if (User.IsInRole("Doctor"))
                 {
-                    @Html.ActionLink("Start appointment |", "Create", "Appointment", new { id = item.Patient_id }, new { })
+                    @*@Html.ActionLink("Start appointment |", "Create", "Appointment", new { id = item.Patient_id }, new { })*@
 
                     @Html.ActionLink(" Medical history |", "Index", "Appointment", new { id = item.Patient_id }, new { })
 

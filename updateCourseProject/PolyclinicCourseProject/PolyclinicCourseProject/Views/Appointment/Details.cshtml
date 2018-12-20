@@ -17,46 +17,55 @@
                 string dfio = dFIO.Surname + " " + dFIO.Name + " " + dFIO.Patronymic;
                 var diagnose = (ViewData["diagnose"] as List<PolyclinicCourseProject.list_of_diagnoses>).ElementAt(0);
                 string diagn = diagnose.Diagnose_name;
-            <dt>
-                Doctor
-            </dt>
+                <dt>
+                    Doctor
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => dfio)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => dfio)
+                </dd>
 
-            <dt>
-                Patient
-            </dt>
+                <dt>
+                    Patient
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => fio)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => fio)
+                </dd>
 
-            <dt>
-                About appointment
-            </dt>
+                <dt>
+                    About appointment
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Info_about_appointment)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Info_about_appointment)
+                </dd>
 
-            <dt>
-                Diagnose
-            </dt>
+                <dt>
+                    Diagnose
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => diagn)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => diagn)
+                </dd>
 
-            <dt>
-                Theraphy
-            </dt>
+                <dt>
+                    Theraphy
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Theraphy)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Theraphy)
+                </dd>
+
+                <dt>
+                    Date
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Data)
+                </dd>
             }
+
         </div>
     </dl>
 </div>

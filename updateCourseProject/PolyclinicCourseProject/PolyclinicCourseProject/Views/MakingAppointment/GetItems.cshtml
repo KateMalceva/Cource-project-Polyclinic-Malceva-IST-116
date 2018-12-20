@@ -1,7 +1,7 @@
-﻿@model IEnumerable<PolyclinicCourseProject.Models.DoctorDAO>
+﻿@model IEnumerable<PolyclinicCourseProject.doctor>
 <select id="doctor" name="Doctor">
     @foreach (var item in Model)
     {
-        <option value="@item.Doctor_id">@item.Surname</option>
+        <option value="@item.Doctor_id"> @item.Surname @item.Name @item.Patronymic</option>
     }
 </select>

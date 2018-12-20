@@ -19,7 +19,7 @@ namespace PolyclinicCourseProject.Controllers
             string query1 = "select spec.Specialty_name from list_of_specialty spec inner join doctor d on d.id_specialty = spec.Specialty_id inner join doctors_timetable dt on dt.id_doctor = d.Doctor_id";
 
             List<doctor> doctors = new List<doctor>();
-            using (PolyclinicEntities ctx = new PolyclinicEntities())
+            using (PolyclinicEntities1 ctx = new PolyclinicEntities1())
             {
                 doctors.AddRange(ctx.Database.SqlQuery<doctor>(query).ToList());
             }
@@ -31,7 +31,7 @@ namespace PolyclinicCourseProject.Controllers
             ViewData["Fio"] = fio;
 
             List<string> specialties = new List<string>();
-            using (PolyclinicEntities ctx = new PolyclinicEntities())
+            using (PolyclinicEntities1 ctx = new PolyclinicEntities1())
             {
                 specialties.AddRange(ctx.Database.SqlQuery<string>(query1).ToList());
             }
@@ -42,8 +42,7 @@ namespace PolyclinicCourseProject.Controllers
                 el.Specialty = specialties.ElementAt(j);
                 j++;
             }
-
-
+            
             return View(timetable);
         }
 
@@ -52,9 +51,16 @@ namespace PolyclinicCourseProject.Controllers
         public ActionResult Create()
         {
             doctors_timetable timetable = new doctors_timetable();
-            using (PolyclinicEntities db = new PolyclinicEntities())
+            using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
-                timetable.ListDoctor = db.doctor.ToList<doctor>();
+                //timetable.ListDoctor = db.doctor.ToList<doctor>();
+                string doctorFIO = string.Format("select * from doctor");
+                List<doctor> dlist = db.Database.SqlQuery<doctor>(doctorFIO).ToList();
+                foreach (doctor el in dlist)
+                {
+                    el.FIO = el.Surname + " " + el.Name + " " + el.Patronymic;
+                }
+                ViewData["doctorFIO"] = dlist;
             }
 
             return View(timetable);
@@ -78,11 +84,18 @@ namespace PolyclinicCourseProject.Controllers
         public ActionResult Edit(int id = 0)
         {
             doctors_timetable timetable = new doctors_timetable();
-            using (PolyclinicEntities db = new PolyclinicEntities())
+            using (PolyclinicEntities1 db = new PolyclinicEntities1())
             {
-                if (id != 0)
-                    timetable = db.doctors_timetable.Where(x => x.Timetable_id == id).FirstOrDefault();
-                timetable.ListDoctor = db.doctor.ToList<doctor>();
+                //if (id != 0)
+                timetable = db.doctors_timetable.Where(x => x.Timetable_id == id).FirstOrDefault();
+                //timetable.ListDoctor = db.doctor.ToList<doctor>();
+                string docFIO = string.Format("select * from doctor");
+                List<doctor> doclist = db.Database.SqlQuery<doctor>(docFIO).ToList();
+                foreach (doctor el in doclist)
+                {
+                    el.FIO = el.Surname + " " + el.Name + " " + el.Patronymic;
+                }
+                ViewData["docFIO"] = doclist;
             }
 
             return View(timetable);

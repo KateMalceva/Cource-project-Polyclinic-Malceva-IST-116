@@ -37,6 +37,11 @@ namespace PolyclinicCourseProject
 
         [NotMapped]
         public List<list_of_specialty> ListSpetialty { get; set; }
+        [NotMapped]
+        public string FIO { get; set; }
+        [NotMapped]
+        public string Specialty { get; set; }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<appointment> appointment { get; set; }

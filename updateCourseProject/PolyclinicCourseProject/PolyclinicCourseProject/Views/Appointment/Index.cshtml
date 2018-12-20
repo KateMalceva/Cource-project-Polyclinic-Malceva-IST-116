@@ -6,6 +6,10 @@
 
 <h2>All appointments</h2>
 
+<div>
+    @Html.ActionLink("Back to List", "Index", "Patient")
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -23,10 +27,13 @@
         <th>
             Theraphy
         </th>
+        <th>
+            Date
+        </th>
         <th></th>
     </tr>
 
-    @{  int i = 0;
+    @{ int i = 0;
         int j = 0;
 
         foreach (var item in Model)
@@ -43,13 +50,20 @@
                     @Html.DisplayFor(modelItem => pFio)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Info_about_appointment)
+                    <div style="width:300px; height: 50px; overflow:hidden;">
+                        @Html.DisplayFor(modelItem => item.Info_about_appointment)
+                        </div>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Diagnose)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Theraphy)
+                    <div style="width:300px; height: 50px; overflow:hidden;">
+                        @Html.DisplayFor(modelItem => item.Theraphy)
+                        </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
                 </td>
                 <td>
                     @Html.ActionLink("Details", "Details", new { id1 = item.id_patient, id = item.Appointment_id, idDoctor = item.id_doctor, idDiagnose = item.id_diagnosis })
@@ -58,7 +72,7 @@
             i++;
             j++;
         }
-}
+    }
 </table>
 
 <div>
